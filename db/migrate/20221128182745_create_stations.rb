@@ -3,9 +3,9 @@ class CreateStations < ActiveRecord::Migration[7.0]
     create_table :stations do |t|
       t.string :name
       t.string :address
-      t.float :lat
-      t.float :lng
-      t.string :type
+      t.float :latitude
+      t.float :longitude
+      t.string :station_type
       t.string :brand
       t.text :services
       t.text :schedule
