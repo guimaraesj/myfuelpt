@@ -1,0 +1,15 @@
+<div class="container-index">
+  <h1>Discounts List</h1>
+  <% @discounts.each do |discount| %>
+    <div class="">
+      <%= link_to station_path(discount), class: "btn btn-flat" do %>
+        <%= discount.brand %>
+        <%= discount.quantity %>
+        <%= discount.addable? %>
+        <%= discount.min_fuel_liters %>
+        <%= discount.max_fuel_liters %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= link_to "Home", root_path,  class: "btn btn-flat" %>
+</div>
