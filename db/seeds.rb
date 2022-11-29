@@ -43,59 +43,94 @@ FuelType.create(
 )
 puts "Created FuelTypes..."
 
-puts "Creating Stations..."
+puts "Creating Station 1..."
 # api_update: "29-11-2022 00:26" --> ver como será isto colocado
 Station.create(
-  nome: "Galp Matosinhos",
-  morada: "Rua Brito Capelo, 951",
-  localidade: "Matosinhos",
-  cod_postal: "4450-077",
-  distrito: "Porto",
+  name: "Galp Matosinhos",
+  address: "Rua Brito Capelo, 951",
+  city: "Matosinhos",
+  zip_code: "4450-077",
+  district: "Porto",
   latitude: 41.17947397622519,
   longitude: -8.689222942994473,
-  tipo_posto: "Outro",
-  marca: "Galp",
-  #servicos: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
-  #horario: ["2ª: 9-20", "3ª: 9-20"],#.to_json,
+  station_type: "Outro",
+  brand: "Galp"
+  #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
+  #schedule: ["2ª: 9-20", "3ª: 9-20"],#.to_json,
+)
+puts "Creating Fuel Types and Prices for Station 1..."
+StationsFuelType.create(
+  station: Station.find_by(name: "Galp Matosinhos"),
+  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  price_per_l: 1.7890,
+  update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
-  fueltype: FuelType.find_by(name: "Gasóleo simples")
-  preco: 1.7890
-  data_atualizacao: "28-11-2022 00:00"
-  combustivel: "Gasóleo especial",
-  preco: 1.8390,
-  data_atualizacao: "28-11-2022 00:00"
-  combustivel: "Gasolina Simples 95",
-  preco: 1.7690,
-  data_atualizacao: "28-11-2022 00:00"
-  combustivel: "Gasolina Especial 98",
-  preco: 1.8190,
-  data_atualizacao: "28-11-2022 00:00"
+  station: Station.find_by(name: "Galp Matosinhos"),
+  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  price_per_l: 1.8390,
+  update_date: "28-11-2022 00:00"
 )
-
-######################################
-# IF THE FIRST PASSES, DO THE SAME FOR THE OTHERS
+StationsFuelType.create(
+  station: Station.find_by(name: "Galp Matosinhos"),
+  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  price_per_l: 1.7690,
+  update_date: "28-11-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "Galp Matosinhos"),
+  fuel_type: FuelType.find_by(name: "Gasolina Especial 98"),
+  price_per_l: 1.8190,
+  update_date: "28-11-2022 00:00"
+)
+puts "Finished Creating Fuel Types and Prices for Station 1."
+puts "Creating Station 2..."
 Station.create(
   name: "Matosinhos-Norauto",
   address: "Avenida Arquiteto Fernando Távora, 718",
+  city: "Matosinhos",
+  zip_code: "4450-077",
+  district: "Porto",
   latitude: 41.21025660368514,
   longitude: -8.68271578161743,
   station_type: "Área comercial (Hipermercados)",
-  brand: "Prio",
-  services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
-  schedule: ["2ª: 9-20", "3ª 9-20"],
-  fuel_types: ["gasoleo_simples", "gasoleo_especial", "gasolina_especial_95", "gasolina_simples_95", "biodiesel_b15"],#.to_json,
-  prices: {
-    gasoleo_simples: 1.6890,
-    gasoleo_especial: 1.6390,
-    biodiesel_b15: 1.6590,
-    gasolina_simples_95: 1.6790,
-    gasolina_especial_95: 1.6090
-  },
-  last_comunication_date: "28-11-2022 00:00",
-  api_update: "29-11-2022 00:26"
+  brand: "Prio"
+  #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
+  #schedule: ["2ª: 9-20", "3ª 9-20"],
 )
-
+puts "Creating Fuel Types and Prices for Station 2..."
+StationsFuelType.create(
+  station: Station.find_by(name: "Matosinhos-Norauto"),
+  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  price_per_l: 1.6890,
+  update_date: "28-11-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "Matosinhos-Norauto"),
+  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  price_per_l: 1.6390,
+  update_date: "28-11-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "Matosinhos-Norauto"),
+  fuel_type: FuelType.find_by(name: "Biodiesel B15"),
+  price_per_l: 1.6590,
+  update_date: "28-11-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "Matosinhos-Norauto"),
+  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  price_per_l: 1.6790,
+  update_date: "28-11-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "Matosinhos-Norauto"),
+  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  price_per_l: 1.6090,
+  update_date: "28-11-2022 00:00"
+)
+puts "Finished Creating Fuel Types and Prices for Station 2."
+puts "Creating Station 3..."   #--> Vou aqui!!
 Station.create(
   name: "Creixomil",
   address: "Rua de São Miguel, São Miguel de Baixo",

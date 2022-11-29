@@ -31,17 +31,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_180412) do
   end
 
   create_table "stations", force: :cascade do |t|
-    t.string "nome"
-    t.string "morada"
-    t.string "localidade"
-    t.string "cod_postal"
-    t.string "distrito"
+    t.string "name"
+    t.string "address"
+    t.string "city"
+    t.string "zip_code"
+    t.string "district"
     t.float "latitude"
     t.float "longitude"
-    t.string "tipo_posto"
-    t.string "marca"
-    t.text "servicos"
-    t.text "horario"
+    t.string "station_type"
+    t.string "brand"
+    t.text "services"
+    t.text "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

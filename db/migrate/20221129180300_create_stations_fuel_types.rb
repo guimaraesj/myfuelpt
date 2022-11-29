@@ -4,7 +4,7 @@ class CreateStationsFuelTypes < ActiveRecord::Migration[7.0]
       t.references :fuel_type, null: false, foreign_key: true
       t.references :station, null: false, foreign_key: true
       t.float :price_per_l
-      t.datetime :data_atualizacao
+      t.datetime :update_date
       t.timestamps
     end
   end
