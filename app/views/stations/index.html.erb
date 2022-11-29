@@ -2,11 +2,10 @@
 <div class="container-index">
   <% @stations.each do |station| %>
   <div class="">
-    <%= link_to station_path(station), class: "text-decoration-none" do %>
+    <%= link_to station_path(station), class: "btn btn-flat" do %>
       <%= station.name %>
     <% end %>
   </div>
   </div>
   <% end %>
-  <%# <%= link_to "Go to the station", station_path,  class: "btn btn-flat" %>
 </div>
