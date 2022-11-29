@@ -13,6 +13,6 @@ class StationsController < ApplicationController
     @request = request
     @latitude = request.location.latitude
     @longitude = request.location.longitude
-    raise
+    #raise
   end
 end
