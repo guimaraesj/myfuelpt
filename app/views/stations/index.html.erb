@@ -1,0 +1,11 @@
+<h1>Stations List</h1>
+<div class="container-index">
+  <% @stations.each do |station| %>
+  <div class="">
+    <%= link_to station_path(station), class: "text-decoration-none" do %>
+      <%= station.name %>
+    <% end %>
+  </div>
+  </div>
+  <% end %>
+</div>
