@@ -1,19 +1,20 @@
 class CreateStations < ActiveRecord::Migration[7.0]
   def change
     create_table :stations do |t|
-      t.string :name
-      t.string :address
+      t.string :nome
+      t.string :morada
+      t.string :localidade
+      t.string :cod_postal
+      t.string :distrito
       t.float :latitude
       t.float :longitude
-      t.string :station_type
-      t.string :brand
-      t.text :services
-      t.text :schedule
-      t.string :fuel_types
-      t.decimal :price
-      t.datetime :api_update
-
+      t.string :tipo_posto
+      t.string :marca
+      t.text :servicos#, array: true
+      t.text :horario#, array: true
       t.timestamps
     end
+    #add_index :stations, :servicos, using: 'gin'
+    #add_index :stations, :horario, using: 'gin'
   end
 end

@@ -11,6 +11,11 @@ class StationsController < ApplicationController
 
   def show
     # authorize @product # pundit authorization to anyone
+    @station = Station.find(params[:id])
+    @marker = "{
+        \"lat\": #{@station.latitude},
+        \"lng\": #{@station.longitude}
+      }"
   end
 
   def near
