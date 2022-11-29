@@ -1,0 +1,12 @@
+<div class="container p-0">
+  <h1>New Discount</h1>
+  <%= simple_form_for [@discounts] do |f| %>
+    <%= f.input :brand, label: 'Insert the station brand' %>
+    <%= f.input :quantity, label: 'Cents/liter (€)' %>
+    <%# <%= f.input :addable?   #validate this as boolean  %>
+    <%# <%= f.input :min_fuel_liters, label: 'Min fuel liter' %>
+    <%# <%= f.input :max_fuel_liters, label: 'Max fuel liter' %>
+    <%= f.submit "Create", class: "btn btn-primary" %>
+    <%= link_to "Home", root_path, class: "btn btn-flat" %>
+  <% end %>
+</div>
