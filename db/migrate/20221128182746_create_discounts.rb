@@ -6,7 +6,6 @@ class CreateDiscounts < ActiveRecord::Migration[7.0]
       t.integer :min_fuel_l
       t.integer :max_fuel_l
       t.date :expiry_date
-
       t.timestamps
     end
   end
