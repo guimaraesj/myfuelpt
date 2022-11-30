@@ -9,8 +9,12 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.save
-    redirect_to vehicles_path
+    @vehicle.user = current_user
+    if @vehicle.save
+      redirect_to vehicles_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -24,10 +28,15 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    @vehicles = Vehicles.find(params[:id])
-    @vehicles.destroy
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.destroy
     redirect_to vehicles_path, status: :see_other
   end
+  # def destroy
+  #   @vehicles = Vehicles.find(params[:id])
+  #   @vehicles.destroy
+  #   redirect_to vehicles_path, status: :see_other
+  # end
 
   private
 

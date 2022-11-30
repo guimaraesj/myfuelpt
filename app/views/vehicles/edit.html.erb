@@ -6,10 +6,8 @@
 <% end %>
 
 
-<%= link_to "Create Vehicle",  new_vehicle_path %>
-
 <%= link_to "Delete",
-  vehicles_path,
+  vehicle_path,
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
 %>
-<%= link_to "Back to Stations", vehicles_path,  class: "btn btn-flat" %>
+<%= link_to "Back to Vehicles", vehicles_path,  class: "btn btn-flat" %>
