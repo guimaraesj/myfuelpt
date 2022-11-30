@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     end
   end
   resources :vehicles, only: %i[index new create edit update destroy] # show not needed.
-  resources :discounts, only: %i[index new create edit update destroy] # show not needed.
+  resources :discounts, only: %i[index new create] # show not needed.
 end
