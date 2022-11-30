@@ -1,5 +1,7 @@
 class DiscountsController < ApplicationController
-  before_action :set_discounts, only: %i[show edit update destroy]
+
+  before_action :set_product, only: %i[edit update destroy]
+
 
   # Pundit: allow-list approach
   after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
@@ -10,49 +12,51 @@ class DiscountsController < ApplicationController
     #@discounts = Discount.all
   end
 
-  def new
-    @discount = Discount.new
-    authorize @discount # pundit authorization to anyone
-  end
+  # def new
+  #   @discount = Discount.new
+  #   # authorize @discounts # pundit authorization to anyone
+  # end
 
-  def create
-    @discount = Discount.new(discounts_params)
-    # @discount.user = current_user
-    authorize @discount # pundit authorization to anyone
-    if @discount.save
-      redirect_to discounts_path(@discount)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @discount = Discount.new(discount_params)
+  #   # @discount.user = current_user
+  #   authorize @discount # pundit authorization to anyone
+  #   if @discount.save
+  #     redirect_to discounts_path(@discount)
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
-  def edit
-    @discount = Discount.find(params[:product_id])
-    authorize @discount # pundit authorization to what is defined in rents policy
-  end
+  # def edit
+  #   @discount = Discount.find(params[:discount_id])
+  #   authorize @discount # pundit authorization to what is defined in rents policy
+  # end
 
-  def update
-    @discount = Discount.find(params[:product_id])
-    @discount.update(discounts_params)
-    #@discounts.product = @discounts
-    authorize @discount # pundit authorization to what is defined in rents policy
-    redirect_to discounts_path(@discounts)
-  end
+  # def update
+  #   #@discount = Discount.find(params[:discount_id])
+  #   @discount.update(discount_params)
+  #   authorize @discount # pundit authorization to what is defined in rents policy
+  #   if @discount.save
+  #     redirect_to discounts_path(@discount)
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
-  def destroy
-    # authorize @discounts # pundit authorization to what is defined in rents policy
-    @discount = Discount.find(params[:id])
-    @discount.destroy
-    redirect_to discounts_path, status: :see_other
-  end
+  # def destroy
+  #   # authorize @discounts # pundit authorization to what is defined in rents policy
+  #   @discount.destroy
+  #   redirect_to discounts_path, status: :see_other
+  # end
 
   private
 
   def discounts_params
-    params.require(:discount).permit(:brand, :quantity, :min_fuel_l, :max_fuel_l, :expiry_date, :created_at, :updated_at)
+    params.require(:discount).permit(:brand, :quantity, :min_fuel_l, :max_fuel_l, :expiry_date)
   end
 
-  def set_discounts
-    @discounts = Discount.find(params[:id])
+  def set_discount
+    @discount = Discount.find(params[:id])
   end
 end
