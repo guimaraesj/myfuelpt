@@ -1,35 +1,55 @@
 class DiscountsController < ApplicationController
+
+  before_action :set_discounts, only: %i[show edit update destroy]
+
   def index
     @discounts = Discount.all
   end
 
   def new
-    @discounts = Discount.new
+    @discount = Discount.new
     # authorize @discounts # pundit authorization to anyone
   end
 
   def create
-    @product = Product.new(product_params)
+    @discount = Discount.new(discounts_params)
     # @product.user = current_user
     # authorize @product # pundit authorization to anyone
-    # if @product.save
-    #   redirect_to products_path(@product)
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
+    if @Discount.save
+      redirect_to discounts_path(@discount)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
-    @product # pundit authorization to owner (see policy)
+    @discount = Discount.find(params[:product_id])
+    #authorize @discounts # pundit authorization to what is defined in rents policy
   end
 
-  # def update
-  #   authorize @product # pundit authorization to owner (see policy)
-  #   @product.update(product_params)
-  #   redirect_to product_path(@product)
-  # end
+  def update
+    # authorize @discounts # pundit authorization to what is defined in rents policy
+    @discount = Discount.find(params[:product_id])
+    @discount.update(discounts_params)
+    #@discounts.product = @discounts
+    redirect_to discounts_path(@discounts)
+  end
 
+  def destroy
+    # authorize @discounts # pundit authorization to what is defined in rents policy
+    @discount = Discount.find(params[:id])
+    @discount.destroy
+    redirect_to discounts_path, status: :see_other
+  end
 
+  private
 
+  def discounts_params
+    params.require(:discounts).permit(:brand, :quantity, :min_fuel_l, :max_fuel_l, :expiry_date, :created_at, :updated_at)
+  end
+
+  def set_discounts
+    @discounts = Discount.find(params[:id])
+  end
 
 end

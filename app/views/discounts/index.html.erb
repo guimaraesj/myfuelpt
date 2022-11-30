@@ -5,11 +5,12 @@
       <%= link_to station_path(discount), class: "btn btn-flat" do %>
         <%= discount.brand %>
         <%= discount.quantity %>
-        <%= discount.addable? %>
-        <%= discount.min_fuel_liters %>
-        <%= discount.max_fuel_liters %>
+        <%= discount.min_fuel_l %>
+        <%= discount.max_fuel_l %>
+        <%= discount.expiry_date %>
       <% end %>
     </div>
   <% end %>
   <%= link_to "Home", root_path,  class: "btn btn-flat" %>
+  <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>
 </div>
