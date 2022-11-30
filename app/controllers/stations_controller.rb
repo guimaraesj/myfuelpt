@@ -1,4 +1,5 @@
 class StationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   # Pundit: allow-list approach
   after_action :verify_authorized, except: %i[index show], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: %i[index show], unless: :skip_pundit?
