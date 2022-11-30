@@ -8,6 +8,7 @@ class VehiclesController < ApplicationController
   def index
     # @vehicles = Vehicle.all
     @vehicles = policy_scope(Vehicle).where(user: current_user)
+    @fuel_type = FuelType.find_by(name: "Gasóleo Simples")
   end
 
   def new
