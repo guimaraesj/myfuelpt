@@ -2,15 +2,13 @@
   <h1>Discounts List</h1>
   <% @discounts.each do |discount| %>
     <div class="">
-      <%= link_to station_path(discount), class: "btn btn-flat" do %>
         <%= discount.brand %>
         <%= discount.quantity %>
         <%= discount.min_fuel_l %>
         <%= discount.max_fuel_l %>
         <%= discount.expiry_date %>
-      <% end %>
     </div>
   <% end %>
-  <%= link_to "Home", root_path,  class: "btn btn-flat" %>
-  <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>
+  <%# <%= link_to "Home", root_path,  class: "btn btn-flat" %>
+  <%# <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>
 </div>
