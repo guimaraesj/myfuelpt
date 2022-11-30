@@ -60,6 +60,7 @@ Station.create(
   #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
   #schedule: ["2ª: 9-20", "3ª: 9-20"],#.to_json,
 )
+
 puts "Creating Fuel Types and Prices for Station 1..."
 StationsFuelType.create(
   station: Station.find_by(name: "Galp Matosinhos"),

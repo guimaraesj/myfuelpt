@@ -1,7 +1,5 @@
 class DiscountsController < ApplicationController
 
-  before_action :set_discounts, only: %i[show edit update destroy]
-
   def index
     @discounts = Discount.all
   end
@@ -15,7 +13,7 @@ class DiscountsController < ApplicationController
     @discount = Discount.new(discounts_params)
     # @product.user = current_user
     # authorize @product # pundit authorization to anyone
-    if @Discount.save
+    if @discount.save
       redirect_to discounts_path(@discount)
     else
       render :new, status: :unprocessable_entity
@@ -45,11 +43,7 @@ class DiscountsController < ApplicationController
   private
 
   def discounts_params
-    params.require(:discounts).permit(:brand, :quantity, :min_fuel_l, :max_fuel_l, :expiry_date, :created_at, :updated_at)
-  end
-
-  def set_discounts
-    @discounts = Discount.find(params[:id])
+    params.require(:discounts).permit(:brand, :quantity, :min_fuel_l, :max_fuel_l, :expiry_date)
   end
 
 end
