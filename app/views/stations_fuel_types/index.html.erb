@@ -1,0 +1,32 @@
+<div class="container-index ">
+  <h1><%= @fuel_type.name %></h1>
+  <% @stations_fuel_types.each do |sft| %>
+    <div class="card-station">
+      <div class= >
+       <%= link_to station_path(sft.station), class: "btn btn-flat" do %>
+        <div class= "" >
+          <%= sft.station.name %>
+        </div>
+        <div class="">
+          <%= sft.station.brand %>
+        </div>
+        <div class="">
+          <%= sft.station.address %>
+        </div>
+        <div class= "text-end">
+          <%= sft.price_per_l %>
+        </div>
+        </div>
+        <div>
+          <p><strong>Aberto</strong></p>
+        </div>
+        <div>
+          <p>200m</p>
+        </div>
+      <% end %>
+
+    </div>
+  <% end %>
+  <%= link_to "Home", root_path,  class: "btn btn-flat" %>
+  <%= link_to "Vehicles",  vehicles_path %>
+</div>
