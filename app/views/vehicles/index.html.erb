@@ -1,6 +1,7 @@
 <ul>
   <% @vehicles.each do |vehicle| %>
     <li><%= vehicle.brand %></li>
-<%= link_to "Edit Car", edit_vehicle_path(vehicle) %>
+<%= link_to "Edit Vehicle", edit_vehicle_path(vehicle) %>
   <% end %>
 </ul>
+<%= link_to "Create Vehicle",  new_vehicle_path %>
