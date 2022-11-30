@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :vehicles, dependent: :destroy
-  has_many :discounts, dependent: :destroy
   validates :email, confirmation: true
 end
