@@ -1,0 +1,12 @@
+<div class="container p-0">
+  <h1>Edit Discount</h1>
+  <%= simple_form_for(@discount) do |f| %>
+        <%= discount.brand %>
+        <%= discount.quantity %>
+        <%= discount.min_fuel_l %>
+        <%= discount.max_fuel_l %>
+        <%= discount.expiry_date %>
+    <%= f.submit"Update discount", class: "btn btn-primary"%>
+    <%= link_to "Back", discounts_path, class: "btn btn-flat" %>
+  <% end %>
+</div>
