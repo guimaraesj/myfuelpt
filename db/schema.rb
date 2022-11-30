@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_180412) do
     t.bigint "fuel_type_id", null: false
     t.bigint "station_id", null: false
     t.float "price_per_l"
-    t.datetime "data_atualizacao"
+    t.datetime "update_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fuel_type_id"], name: "index_stations_fuel_types_on_fuel_type_id"
