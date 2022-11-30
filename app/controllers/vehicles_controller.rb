@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
   def index
     @vehicles = Vehicle.all
+    @fuel_type = FuelType.find_by(name: "Gasóleo Simples")
   end
 
   def new
