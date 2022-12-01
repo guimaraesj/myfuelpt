@@ -6,9 +6,8 @@ class VehiclesController < ApplicationController
   after_action :verify_policy_scoped, only: %i[index], unless: :skip_pundit?
 
   def index
-    # @vehicles = Vehicle.all
-    @vehicles = policy_scope(Vehicle).where(user: current_user)
     @fuel_type = FuelType.find_by(name: "Gasóleo Simples")
+    @vehicles = policy_scope(Vehicle).where(user: current_user)
   end
 
   def new
