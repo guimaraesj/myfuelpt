@@ -23,8 +23,10 @@ class VehiclesController < ApplicationController
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to vehicles_path }
+        format.json
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.json
       end
     end
   end

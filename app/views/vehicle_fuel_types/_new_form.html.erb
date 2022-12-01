@@ -1,0 +1,3 @@
+<%= simple_form_for [vehicle, vehicle_fuel_type], data: { create_vehicle_target: "vehicleFuelTypeForm" } do |f| %>
+  <%= f.association :fuel_type, collection: FuelType.all %>
+<% end %>

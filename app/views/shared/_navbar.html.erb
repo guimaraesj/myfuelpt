@@ -24,7 +24,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://www.freeiconspng.com/uploads/menu-icon-8.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# <%= link_to "Stations", fuel_type_stations_fuel_types_path, class: "dropdown-item" %>
+              <%  link_to "Stations", stations_fuel_types_path, class: "dropdown-item" %>
               <%= link_to "Discounts", discounts_path, class: "dropdown-item" %>
               <%= link_to "Vehicles", vehicles_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
