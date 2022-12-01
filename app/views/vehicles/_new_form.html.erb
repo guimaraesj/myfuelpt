@@ -1,5 +1,5 @@
 <div class="container" data-controller="create-vehicle">
-  <%= simple_form_for(@vehicle, data: { create_vehicle_target: "vehicleForm", action: "submit->create-vehicle#createVehicle" }) do |f| %>
+  <%= simple_form_for(vehicle, data: { create_vehicle_target: "vehicleForm", action: "submit->create-vehicle#createVehicle" }) do |f| %>
     <%= f.input :brand %>
     <%= f.input :model %>
     <%= f.input :real_consumption %>

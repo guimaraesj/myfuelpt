@@ -20,10 +20,12 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     #authorize @vehicle # pundit authorization to owner (see policy)
-    if @vehicle.save
-      redirect_to vehicles_path
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @vehicle.save
+        format.html { redirect_to vehicles_path }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

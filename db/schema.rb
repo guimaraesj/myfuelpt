@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
     t.index ["station_id"], name: "index_stations_fuel_types_on_station_id"
   end
 
+  create_table "user_discounts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "discount_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discount_id"], name: "index_user_discounts_on_discount_id"
+    t.index ["user_id"], name: "index_user_discounts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,8 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "discount_id"
-    t.index ["discount_id"], name: "index_users_on_discount_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,7 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
 
   add_foreign_key "stations_fuel_types", "fuel_types"
   add_foreign_key "stations_fuel_types", "stations"
-  add_foreign_key "users", "discounts"
+  add_foreign_key "user_discounts", "discounts"
+  add_foreign_key "user_discounts", "users"
   add_foreign_key "vehicle_fuel_types", "fuel_types"
   add_foreign_key "vehicle_fuel_types", "vehicles"
   add_foreign_key "vehicles", "users"

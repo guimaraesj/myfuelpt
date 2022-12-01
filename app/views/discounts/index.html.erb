@@ -1,7 +1,7 @@
 <div class="container-index">
   <h1>My Discount List</h1>
-  <% if current_user.discount_id.nil? %>
-    <p>You haven't added any discounts</p>
+  <% if current_user.discounts.empty? %>
+    <p>You haven't added any discounts yet</p>
   <% else %>
     <% current_user.discounts.each do |discount| %>
       <div class="">
@@ -13,7 +13,7 @@
           <p>Max Liters:</p><%= discount.max_fuel_l %>
           <p>Min User Age:</p><%= discount.min_user_age %>
           <p>Max User Age:</p><%= discount.max_user_age %>
-          <p>Locations Applied:</p><%= discount.location_applied %>
+          <p>Locations Applied:</p><%= discount.locations_applied %>
           <p>Discount Type:</p><%= discount.discount_type %>
           <%# <%= discount.expiry_date %>
       </div>
@@ -30,7 +30,7 @@
           <p>Max Liters:</p><%= discount.max_fuel_l %>
           <p>Min User Age:</p><%= discount.min_user_age %>
           <p>Max User Age:</p><%= discount.max_user_age %>
-          <p>Locations Applied:</p><%= discount.location_applied %>
+          <p>Locations Applied:</p><%= discount.locations_applied %>
           <p>Discount Type:</p><%= discount.discount_type %>
           <%# <%= discount.expiry_date %>
       </div>
