@@ -17,6 +17,7 @@ class VehiclesController < ApplicationController
   end
 
   def create
+    puts params
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     #authorize @vehicle # pundit authorization to owner (see policy)
@@ -26,6 +27,7 @@ class VehiclesController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
       end
+      format.json
     end
   end
 

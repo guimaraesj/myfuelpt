@@ -11,13 +11,18 @@ export default class extends Controller {
     fetch(this.vehicleFormTarget.action,
       {
         method: "POST",
-        headers: { "Accept": "application/json", "X-CSRF-Token": this.csrfToken },
-        body: new FormData(this.formTarget)
+        headers: { "Accept": "application/json"},
+        body: new FormData(this.vehicleFormTarget)
       }
     )
-      .then(response => response.json)
+      .then(response => response.json())
       .then((data) => {
         console.log(data)
+        if (data.hasOwnProperty('form')) {
+          console.log(1)
+          this.vehicleFormTarget.outerHTML = data["form"]
+        }
+
       })
   }
 }
