@@ -7,10 +7,54 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   border-radius: 5px;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 15px;
   margin-right: 15px ;
 }
+.logo{
+  min-width: 100px;
+}
+
+.p_address {
+  max-height:20px;
+  overflow: scroll;
+}
+
+.avatar-square {
+  width: 56px;
+  height: 56px;
+  background-size: cover;
+  background-position: top center;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.h6 {
+font-family: 'Titillium Web';
+font-style: normal;
+font-weight: 400;
+font-size: 8px;
+line-height: 12px;
+}
+
+.margins-address{
+  margin-right: -56px;
+    margin-left: -28px;
+    margin-top: 15px;
+}
+
+.margins-stations {
+  margin-left: -19px;
+    margin-top: 14px;
+    margin-left: -28px;
+}
+
+.margins-price{
+  margin: 0;
+    margin-top: 12px;
+    margin-left: 28px;
+}
+
