@@ -23,6 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
     t.datetime "updated_at", null: false
     t.string "card"
     t.text "description"
+    t.string "min_user_age"
+    t.string "max_user_age"
+    t.string "locations_applied"
     t.string "discount_type"
   end
 
