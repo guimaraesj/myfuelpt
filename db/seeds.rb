@@ -10,9 +10,9 @@ StationsFuelType.destroy_all
 VehicleFuelType.destroy_all
 FuelType.destroy_all
 Vehicle.destroy_all
+Discount.destroy_all
 User.destroy_all
 Station.destroy_all
-Discount.destroy_all
 
 ################################################################################
 puts "Creating FuelTypes..."
@@ -322,20 +322,42 @@ StationsFuelType.create(
 puts "Finished Creating Fuel Types and Prices for Station 6."
 puts "Created Stations."
 ################################################################################
+puts "Creating Discounts"
+# "brand", "quantity", "min_fuel_l", "max_fuel_l", "card", "description"
+# "min_user_age", "max_user_age", "locations_applied", "discount_type"
+Discount.create(
+  card: "Continente", brand: "Galp",
+  quantity: 0.03, min_fuel_l: 0, max_fuel_l: 60,
+  description: "3 cênt/l em qualquer abastecimento de combustível Galp Evologic que apresente o seu Cartão Continente (max 60L)",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto em Evologic"
+)
+Discount.create(
+  card: "Plano Galp e Continente", brand: "Galp",
+  quantity: 0.14, min_fuel_l: 0, max_fuel_l: 999,
+  description: "14 cênt/l em combustível Galp em Cartão Continente",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Em cartão Continente"
+)
+puts "Finished creating discounts"
+
+################################################################################
 puts "Creating Users..."
 User.create(
   first_name: "Jorge", last_name: "Guimarães",
-  email: "jorge@hotmail.com", password: "123456"
+  email: "jorge@hotmail.com", password: "123456",
+  #fuel_type: "gasolina",
+  discount: Discount.find_by(card: "Plano Galp e Continente")
 )
 
 User.create(
   first_name: "Francisco", last_name: "Patricio",
-  email: "francisco@hotmail.com", password: "123456"
+  email: "francisco@hotmail.com", password: "123456",
+  discount: Discount.find_by(card: "Plano Galp e Continente")
 )
 
 User.create(
   first_name: "Manuel", last_name: "Esteves",
-  email: "manuel@hotmail.com", password: "123456"
+  email: "manuel@hotmail.com", password: "123456",
+  discount: Discount.find_by(card: "Plano Galp e Continente")
 )
 puts "Created Users."
 ################################################################################
@@ -430,19 +452,3 @@ VehicleFuelType.create(
 )
 puts "Finished associating Fuel Types to vehicles"
 ################################################################################
-
-puts "Creating Discounts"
-# "brand", "quantity", "min_fuel_l", "max_fuel_l", "card", "description"
-# "min_user_age", "max_user_age", "locations_applied", "discount_type"
-Discount.create(
-  card: "Continente", brand: "Galp",
-  quantity: 0.03, min_fuel_l: 0, max_fuel_l: 60,
-  description: "3 cênt/l em qualquer abastecimento de combustível Galp Evologic que apresente o seu Cartão Continente (max 60L)",
-  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto em Evologic"
-)
-Discount.create(
-  card: "Plano Galp e Continente", brand: "Galp",
-  quantity: 0.14, min_fuel_l: 0, max_fuel_l: 999,
-  description: "14 cênt/l em combustível Galp em Cartão Continente",
-  locations_applied: "Continente, Madeira e Açores", discount_type: "Em cartão Continente"
-)

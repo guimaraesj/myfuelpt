@@ -1,5 +1,5 @@
 <ul>
-  <% @vehicles.each do |vehicle| %>
+  <% current_user.vehicles.each do |vehicle| %>
     <li><%= vehicle.brand %></li>
 <%= link_to "Edit Vehicle", edit_vehicle_path(vehicle) %>
   <% end %>
