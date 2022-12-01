@@ -1,15 +1,14 @@
 class DiscountsController < ApplicationController
-
   before_action :set_product, only: %i[edit update destroy]
 
-
   # Pundit: allow-list approach
-  after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
-  after_action :verify_policy_scoped, except: %i[index], unless: :skip_pundit?
+  #after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
+  #after_action :verify_policy_scoped, except: %i[index], unless: :skip_pundit?
 
   def index
-    @discounts = policy_scope(Discount)
+    #@discounts = policy_scope(Discount)
     #@discounts = Discount.all
+    @discounts = Discount.all#.where(user: current_user)
   end
 
   # def new
