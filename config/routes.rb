@@ -11,9 +11,10 @@ Rails.application.routes.draw do
       get :smart # we probably won't need index
     end
   end
-  resources :fuel_types, only: [] do
-    resources :stations_fuel_types, only: :index
+  resources :fuel_types, only: []
+  resources :stations_fuel_types, only: :index
+  resources :vehicles, only: %i[index new create edit update destroy] do # show not needed.
+    resources :vehicle_fuel_types, only: %i[create new]
   end
-  resources :vehicles, only: %i[index new create edit update destroy] # show not needed.
   resources :discounts, only: %i[index new create] # show not needed.
 end
