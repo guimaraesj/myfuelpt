@@ -2,8 +2,8 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: %i[edit update destroy]
 
   # Pundit: allow-list approach
-  after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: %i[index], unless: :skip_pundit?
+  # after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: %i[index], unless: :skip_pundit?
 
   def index
     @fuel_type = FuelType.find_by(name: "Gasóleo Simples")
@@ -18,7 +18,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
-    authorize @vehicle # pundit authorization to owner (see policy)
+    # authorize @vehicle # pundit authorization to owner (see policy)
     if @vehicle.save
       redirect_to vehicles_path
     else
@@ -28,20 +28,20 @@ class VehiclesController < ApplicationController
 
   def edit #edit is not on a new page, so no need for this.
     # @vehicle = Vehicle.find(params[:id])
-    authorize @vehicle
+    # authorize @vehicle
   end
 
   def update
     #@vehicle = Vehicle.find(params[:id])
     @vehicle.update(vehicle_params)
-    authorize @vehicle # pundit authorization to owner (see policy)
+    # authorize @vehicle # pundit authorization to owner (see policy)
     redirect_to vehicles_path
   end
 
   def destroy
     #@vehicle = Vehicle.find(params[:id])
     @vehicle.destroy
-    authorize @vehicle # pundit authorization to owner (see policy)
+    # authorize @vehicle # pundit authorization to owner (see policy)
     redirect_to vehicles_path, status: :see_other
   end
 
