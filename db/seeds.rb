@@ -12,6 +12,7 @@ FuelType.destroy_all
 Vehicle.destroy_all
 Discount.destroy_all
 User.destroy_all
+UserDiscount.destroy_all
 Station.destroy_all
 
 ################################################################################
@@ -343,24 +344,34 @@ puts "Finished creating discounts"
 puts "Creating Users..."
 User.create(
   first_name: "Jorge", last_name: "Guimarães",
-  email: "jorge@hotmail.com", password: "123456",
-  #fuel_type: "gasolina",
-  discount: Discount.find_by(card: "Plano Galp e Continente")
+  email: "jorge@hotmail.com", password: "123456"
 )
 
 User.create(
   first_name: "Francisco", last_name: "Patricio",
-  email: "francisco@hotmail.com", password: "123456",
-  discount: Discount.find_by(card: "Plano Galp e Continente")
+  email: "francisco@hotmail.com", password: "123456"
 )
 
 User.create(
   first_name: "Manuel", last_name: "Esteves",
-  email: "manuel@hotmail.com", password: "123456",
-  discount: Discount.find_by(card: "Plano Galp e Continente")
+  email: "manuel@hotmail.com", password: "123456"
 )
 puts "Created Users."
 ################################################################################
+puts "Associating Discounts to users"
+UserDiscount.create(
+  user: User.find_by(first_name: 'Jorge'),
+  discount: Discount.find_by(card: "Plano Galp e Continente")
+)
+UserDiscount.create(
+  user: User.find_by(first_name: 'Manuel'),
+  discount: Discount.find_by(card: "Plano Galp e Continente")
+)
+
+puts "Associated Discounts to users"
+################################################################################
+
+
 puts "Creating Vehicles..."
 Vehicle.create(
   brand: "Kia", model: "Rio",
