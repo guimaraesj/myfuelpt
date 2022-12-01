@@ -2,11 +2,13 @@
   <h1>Discounts List</h1>
   <% @discounts.each do |discount| %>
     <div class="">
-        <%= discount.brand %>
-        <%= discount.quantity %>
-        <%= discount.min_fuel_l %>
-        <%= discount.max_fuel_l %>
-        <%= discount.expiry_date %>
+        <p>Brand:</p><%= discount.brand %>
+        <p>Quantity:</p><%= discount.quantity %> <p>€/L</p>
+        <p>Card:</p><%= discount.card %>
+        <p>Description:</p><%= discount.description %>
+        <p>Min Liters:</p><%= discount.min_fuel_l %>
+        <p>Max Liters:</p><%= discount.max_fuel_l %>
+        <%# <%= discount.expiry_date %>
     </div>
   <% end %>
   <%# <%= link_to "Home", root_path,  class: "btn btn-flat" %>

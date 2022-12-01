@@ -12,6 +12,7 @@ FuelType.destroy_all
 Vehicle.destroy_all
 User.destroy_all
 Station.destroy_all
+Discount.destroy_all
 
 ################################################################################
 puts "Creating FuelTypes..."
@@ -428,3 +429,21 @@ VehicleFuelType.create(
   fuel_type: FuelType.find_by(name: "Gasolina Top")
 )
 puts "Finished associating Fuel Types to vehicles"
+################################################################################
+
+puts "Creating Discounts"
+Discount.create(
+  card: "Continente", brand: "Galp",
+  quantity: 0.03, min_fuel_l: 0, max_fuel_l: 60,
+  description: "3 cênt/l em qualquer abastecimento de combustível Galp Evologic que apresente o seu Cartão Continente (max 60L)"
+)
+Discount.create(
+  card: "Plano Galp e Continente", brand: "Galp",
+  quantity: 0.14, min_fuel_l: 0, max_fuel_l: 999,
+  description: "14 cênt/l em combustível Galp em Cartão Continente"
+)
+Discount.create(
+  card: "Plano Galp e Continente", brand: "Galp",
+  quantity: 0.14, min_fuel_l: 0, max_fuel_l: 999,
+  description: "14 cênt/l em combustível Galp em Cartão Continente"
+)
