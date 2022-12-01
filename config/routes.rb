@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
   resources :fuel_types, only: []
   resources :stations_fuel_types, only: :index
-  resources :vehicles, only: %i[index new create edit update destroy] # show not needed.
+  resources :vehicles, only: %i[index new create edit update destroy] do # show not needed.
+    resources :vehicle_fuel_types, only: %i[create new]
+  end
   resources :discounts, only: %i[index new create] # show not needed.
 end

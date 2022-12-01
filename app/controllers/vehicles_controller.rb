@@ -17,17 +17,17 @@ class VehiclesController < ApplicationController
   end
 
   def create
-    puts params
     @vehicle = Vehicle.new(vehicle_params)
     @vehicle.user = current_user
     #authorize @vehicle # pundit authorization to owner (see policy)
     respond_to do |format|
       if @vehicle.save
         format.html { redirect_to vehicles_path }
+        format.json
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.json
       end
-      format.json
     end
   end
 
