@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_170006) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_225849) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,9 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_170006) do
     t.string "quantity"
     t.integer "min_fuel_l"
     t.integer "max_fuel_l"
-    t.date "expiry_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "card"
+    t.text "description"
+    t.string "discount_type"
   end
 
   create_table "fuel_types", force: :cascade do |t|

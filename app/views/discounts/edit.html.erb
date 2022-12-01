@@ -1,11 +1,14 @@
+NOT USED!!!
 <div class="container p-0">
   <h1>Edit Discount</h1>
   <%= simple_form_for [@discount] do |f| %>
-    <%= f.input :brand, label: 'Insert the station brand' %>
+    <%= f.input :card, label: 'Card Name'%>
+    <%= f.input :brand, label: 'Station brand' %>
     <%= f.input :quantity, label: 'Cents/liter (€)' %>
+    <%= f.input :description, label: 'Description' %>
     <%= f.input :min_fuel_l, label: 'Min fuel liter' %>
     <%= f.input :max_fuel_l, label: 'Max fuel liter'%>
-    <%= f.input :expiry_date, label: 'Expiry date'%>
+    <%# <%= f.input :expiry_date, label: 'Expiry date'%>
     <%= f.submit"Update discount", class: "btn btn-primary"%>
     <%= link_to "Back", discounts_path, class: "btn btn-flat" %>
   <% end %>
