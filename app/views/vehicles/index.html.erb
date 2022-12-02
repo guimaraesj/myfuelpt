@@ -8,13 +8,5 @@
   </ul>
     <%# <%= link_to "Back",  root_path %>
 </div>
-  <%= link_to "Back to Stations",  fuel_type_stations_fuel_types_path(@fuel_type) %>
+  <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %>
   <%= link_to "Create Vehicle",  new_vehicle_path %>
-<ul>
-  <% current_user.vehicles.each do |vehicle| %>
-    <li><%= vehicle.brand %></li>
-<%= link_to "Edit Vehicle", edit_vehicle_path(vehicle) %>
-  <% end %>
-</ul>
-<%= link_to "Create Vehicle",  new_vehicle_path %>
-<%#= link_to "Back to Stations",  fuel_type_stations_fuel_types_path(@fuel_type) %>
