@@ -1,0 +1,13 @@
+.btn-flat {
+  align-items: center;
+  // color: white; //do not add or station cards text will be white
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: 255, 78, 78;
+  transition: 0.3s ease;
+}
+
+.btn-flat:hover {
+  background:255, 78, 78;
+  color: white;
+}
