@@ -1,27 +1,61 @@
-<div class="container-index">
+<div class="container">
   <h1>My Discount List</h1>
-  <% if current_user.discounts.empty? %>
-    <p>You haven't added any discounts yet</p>
-  <% else %>
-    <% current_user.discounts.each do |discount| %>
-      <div class="">
-          <p>Brand:</p><%= discount.brand %>
-          <p>Quantity:</p><%= discount.quantity %> <p>€/L</p>
-          <p>Card:</p><%= discount.card %>
-          <p>Description:</p><%= discount.description %>
-          <p>Min Liters:</p><%= discount.min_fuel_l %>
-          <p>Max Liters:</p><%= discount.max_fuel_l %>
-          <p>Min User Age:</p><%= discount.min_user_age %>
-          <p>Max User Age:</p><%= discount.max_user_age %>
-          <p>Locations Applied:</p><%= discount.locations_applied %>
-          <p>Discount Type:</p><%= discount.discount_type %>
+    <div class="col">
+    <% if current_user.discounts.empty? %>
+      <p>You haven't added any discounts yet</p>
+    <% else %>
+    <div class="card-discount col-6">
+      <% current_user.discounts.each do |discount| %>
+      <%# se algum dos componentes abaixo estiver empty, não fazer display dele!!! %>
+
+      <table class="table table-borderless table-sm mb-0">
+        <tr>
+          <td class="font-weight-normal align-middle">Brand</td>
+          <td class="float-end font-weight-normal">
+            <p class="mb-1"><span class="text-muted"><%= discount.brand %></span></p>
+          </td>
+        </tr>
+          
+      </table>
+
+          <div class="row">
+            <p><strong>Brand:</strong></p><%= discount.brand %>
+          </div>
+          <div class="row">
+            <p><strong>Quantity:</strong></p><%= discount.quantity %> <p>€/L</p>
+          </div>
+          <div class="row">
+            <p><strong>Card:</strong></p><%= discount.card %>
+          </div>
+          <div class="row">
+            <p><strong>Description:</strong></p><%= discount.description %>
+          </div>
+          <div class="row">
+            <p><strong>Min Liters:</strong></p><%= discount.min_fuel_l %>
+          </div>
+          <div class="row">
+            <p><strong>Max Liters:</strong></p><%= discount.max_fuel_l %>
+          </div>
+          <div class="row"><p>
+            <strong>Min User Age:</strong></p><%= discount.min_user_age %>
+          </div>
+          <div class="row">
+            <p><strong>Max User Age:</strong></p><%= discount.max_user_age %>
+          </div>
+          <div class="row">
+            <p><strong>Locations Applied:</strong></p><%= discount.locations_applied %>
+          </div>
+          <div class="row">
+            <p><strong>Discount Type:</strong></p><%= discount.discount_type %>
+          </div>
           <%# <%= discount.expiry_date %>
+        <% end %>
       </div>
-      <% end %>
-  <% end %>
+    <% end %>
+  </div>
   <h1>Available Discounts</h1>
  <% @discounts.each do |discount| %>
-      <div class="">
+      <div class="card-discount">
           <p>Brand:</p><%= discount.brand %>
           <p>Quantity:</p><%= discount.quantity %> <p>€/L</p>
           <p>Card:</p><%= discount.card %>
