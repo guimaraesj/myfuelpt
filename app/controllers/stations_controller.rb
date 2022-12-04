@@ -36,4 +36,15 @@ class StationsController < ApplicationController
     @longitude = request.location.longitude
     # raise
   end
+
+  def distance
+    # find user location
+    # calculate distance to locations
+    # const newYork = new mapboxgl.LngLat(-74.0060, 40.7128);
+    # const losAngeles = new mapboxgl.LngLat(-118.2437, 34.0522);
+    # newYork.distanceTo(losAngeles);
+    # => 3935751.690893987, "true distance" using a non-spherical approximation is ~3966km
+
+    #link: https://docs.mapbox.com/mapbox-gl-js/api/geography/#lnglat#distanceto
+  end
 end
