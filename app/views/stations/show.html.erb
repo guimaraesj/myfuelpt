@@ -1,7 +1,7 @@
 <div class="container">
-  <p><strong>Station Name: </strong><%= @station.name %></p>
-  <p><strong>Station Brand: </strong><%= @station.brand %></p>
-  <p><strong>Station Address: </strong><%= @station.address %></p>
+  <p><strong>Name: </strong><%= @station.name %></p>
+  <p><strong>Brand: </strong><%= @station.brand %></p>
+  <p><strong>Address: </strong><%= @station.address %></p>
 
   <div data-controller="map"
     id="map"
@@ -10,8 +10,9 @@
     style="width: 100%; height: 300px;">
   </div>
 
-  <p><strong>Station Schedule<strong><%= @station.schedule %></p>
-  <p><strong>Station Services<strong><%= @station.services %></p>
+  <p><strong>Schedule<strong><%= @station.schedule %></p>
+  <p><strong>Services<strong><%= @station.services %></p>
 
+<%= link_to "Route to station", "#", class: "btn btn-flat"%> <%#=add here the external link to to choose from waze, google maps, etc. %>
 <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type), class: "btn btn-flat" %>
 </div>

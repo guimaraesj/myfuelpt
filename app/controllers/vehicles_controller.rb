@@ -31,7 +31,7 @@ class VehiclesController < ApplicationController
     end
   end
 
-  def edit #edit is not on a new page, so no need for this.
+  def edit
     # @vehicle = Vehicle.find(params[:id])
     #authorize @vehicle
   end
