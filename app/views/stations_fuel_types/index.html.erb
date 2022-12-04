@@ -10,7 +10,7 @@
   </li>
 
   <h5 class="text">Preços atualizados há 2 dias</h5>
-  <%#=colocar aqui a data de atualização do ficheiro  %>
+  <%#=colocar aqui a data de atualização do ficheiro quando houver API %>
 
   <% @stations_fuel_types.each do |sft| %>
     <div class="card-station d-flex">
@@ -128,9 +128,13 @@
             <div class="col-8">
             <%# class=margins-stations %>
               <h6><strong><%=sft.station.brand %></strong></h6>
+              <% if current_user %> <%# tooltip to show number of discounts applied %>
+                <i class="fa-solid fa-circle-info" data-controller="tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= pluralize(current_user.discounts.size, "discount") %>"></i>
+              <% end %>
             </div>
             <div class="col">
             <%# class=margins-price %>
+              <%#= preços com descontos vão aparecer aqui:%>
               <p><%= sft.price_per_l %> €/l</p>
             </div>
           </div>
