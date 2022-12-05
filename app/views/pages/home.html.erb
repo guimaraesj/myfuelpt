@@ -7,6 +7,7 @@
     <div class="col" style="margin-left: 120px;">
     <% if user_signed_in? == false %>
       <%= link_to "Login", new_user_session_path, class: "btn btn-flat link-call-to-action" %>
+    <% else %>
       <p class="h2">Hello <%= current_user.first_name  %></p>
     <% end %>
       <%= link_to "Check Prices", stations_fuel_types_path, class: "btn btn-flat link-call-to-action" %>
