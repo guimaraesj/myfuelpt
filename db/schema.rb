@@ -81,8 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "discount_id"
-    t.index ["discount_id"], name: "index_users_on_discount_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,7 +108,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
   add_foreign_key "stations_fuel_types", "stations"
   add_foreign_key "user_discounts", "discounts"
   add_foreign_key "user_discounts", "users"
-  add_foreign_key "users", "discounts"
   add_foreign_key "vehicle_fuel_types", "fuel_types"
   add_foreign_key "vehicle_fuel_types", "vehicles"
   add_foreign_key "vehicles", "users"
