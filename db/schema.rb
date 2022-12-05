@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_114122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "discounts", force: :cascade do |t|
     t.string "brand"
-    t.string "quantity"
     t.integer "min_fuel_l"
     t.integer "max_fuel_l"
     t.datetime "created_at", null: false
@@ -27,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
     t.string "max_user_age"
     t.string "locations_applied"
     t.string "discount_type"
+    t.float "quantity"
   end
 
   create_table "fuel_types", force: :cascade do |t|
