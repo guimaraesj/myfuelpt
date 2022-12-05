@@ -58,9 +58,10 @@ Station.create(
   latitude: 41.17947397622519,
   longitude: -8.689222942994473,
   station_type: "Outro",
-  brand: "Galp"
+  brand: "Galp",
   #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
-  #schedule: ["2ª: 9-20", "3ª: 9-20"],#.to_json,
+  services: ["Car-Wash", "WC", "ATM", "Air-Water", "Convenience Store", "Lubricants"],#.to_json,
+  schedule: ["Mon-Sun: 09-20h"]
 )
 
 puts "Creating Fuel Types and Prices for Station 1..."
@@ -99,9 +100,9 @@ Station.create(
   latitude: 41.21025660368514,
   longitude: -8.68271578161743,
   station_type: "Área comercial (Hipermercados)",
-  brand: "Prio"
-  #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
-  #schedule: ["2ª: 9-20", "3ª 9-20"],
+  brand: "Prio",
+  services: ["Air-Water", "Lubricants"],#.to_json,
+  schedule: ["Mon-Sun: 24h"]
 )
 puts "Station 2 created"
 puts "Creating Fuel Types and Prices for Station 2..."
@@ -147,9 +148,9 @@ Station.create(
   latitude: 41.43914045640935,
   longitude: -8.307753971534092,
   station_type: "Auto-estrada",
-  brand: "Shell"
-  #services: ["Acessibilidade", "Ar-Agua", "Gas 9kg", "Loja Conveniencia", "Lubrificantes", "Wifi-gratuito"],#.to_json,
-  #schedule: ["2ª: 7-23", "3ª 7-23"],
+  brand: "Shell",
+  services: ["WC", "Air-Water", "Gas 9kg", "Convenience Store", "Lubricants", "Wi-fi"],#.to_json,
+  schedule: ["Mon-Sun: 07-23h"]
 )
 puts "Station 3 created"
 puts "Creating Fuel Types and Prices for Station 3..."
@@ -189,9 +190,9 @@ Station.create(
   latitude: 41.44146733953273,
   longitude: -8.289682350412324,
   station_type: "Outro",
-  brand: "Prio"
-  #services: ["Acessibilidade", "WC", "Atendimento", "Ar-Agua", "Loja Conveniencia", "Lubrificantes"],#.to_json,
-  #schedule: ["2ª: 7-23", "3ª 7-23"],
+  brand: "Prio",
+  services: ["WC", "Air-Water", "Convenience Store", "Lubricants"],#.to_json,
+  schedule: ["Mon-Sun: 07-23h"]
 )
 puts "Station 4 created"
 puts "Creating Fuel Types and Prices for Station 4..."
@@ -230,9 +231,9 @@ Station.create(
   latitude: 41.186565030998764,
   longitude: -8.677973147679213,
   station_type: "Auto-Estrada",
-  brand: "Cepsa"
-  #services: ["Loja", "Lavagem Auto", "Ar-Agua"],#.to_json,
-  #schedule: ["Seg-Dom 00:00 - 24:00"],
+  brand: "Cepsa",
+  services: ["Store", "Car-Wash", "Air-Water", "Lubricants"],#.to_json,
+  schedule: ["Mon-Sun: 24h"]
 )
 puts "Station 5 created"
 puts "Creating Fuel Types and Prices for Station 5..."
@@ -272,9 +273,9 @@ Station.create(
   latitude: 41.186565030998764,
   longitude: -8.677973147679213,
   station_type: "Outro",
-  brand: "Q8"
-  #services: ["Loja", "Lavagem Auto", "Ar-Agua"],#.to_json,
-  #schedule: ["Seg-Dom 07:00 - 21:00"],
+  brand: "Q8",
+  services: ["Air-Water", "Convenience Store", "Lubricants"],#.to_json,
+  schedule: ["Mon-Sun: 07-21h"]
 )
 puts "Station 6 created"
 puts "Creating Fuel Types and Prices for Station 5..."
@@ -367,10 +368,12 @@ UserDiscount.create(
   user: User.find_by(first_name: 'Manuel'),
   discount: Discount.find_by(card: "Plano Galp e Continente")
 )
-
+UserDiscount.create(
+  user: User.find_by(first_name: 'Francisco'),
+  discount: Discount.find_by(card: "Plano Galp e Continente")
+)
 puts "Associated Discounts to users"
 ################################################################################
-
 
 puts "Creating Vehicles..."
 Vehicle.create(
