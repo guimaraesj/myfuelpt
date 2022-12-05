@@ -1,14 +1,16 @@
-<%= simple_form_for(@vehicle, data: { create_vehicle_target: "vehicleForm", action: "submit->create-vehicle#createVehicle" })  do |f| %>
-<%# pode ser o mesmo controlador do create para o edit?? %>
-  <%= f.input :brand %>
-  <%= f.input :model %>
-  <%= f.input :real_consumption %>
-  <a class="btn" data-action="click->create-vehicle#displayFuelTypeForm">Edit fuel type</a>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for(@vehicle, data: { create_vehicle_target: "vehicleForm", action: "submit->create-vehicle#createVehicle" })  do |f| %>
+  <%# pode ser o mesmo controlador do create para o edit?? %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :real_consumption %>
+    <a class="btn" data-action="click->create-vehicle#displayFuelTypeForm">Edit fuel type</a>
+    <%= f.submit %>
+  <% end %>
 
-<%= link_to "Delete vehicle",
-  vehicle_path,
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-<%= link_to "Back to Vehicles", vehicles_path,  class: "btn btn-flat" %>
+  <%= link_to "Delete vehicle",
+    vehicle_path,
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+  <%= link_to "Back to Vehicles", vehicles_path,  class: "btn btn-flat" %>
+</div>
