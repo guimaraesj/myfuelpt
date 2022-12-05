@@ -17,6 +17,12 @@
       </div>
     </div>
   <% end %>
+  <div class= "card-vehicles d-flex justify-content-center align-items-center" id="new_vehicle_btn" >
+    <%= link_to new_vehicle_path do %>
+      <i class="fa-solid fa-circle-plus" style= "color: #5F6265; font-size: 30px; margin: 10px;";></i>
+    <% end %>
+  </div>
+  <%= link_to stations_fuel_types_path(@fuel_type) do %>
+    <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 25px; margin: 20px;"></i>
+  <% end %>
 </div>
-<%= link_to "Create Vehicle",  new_vehicle_path %>
-<%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %>
