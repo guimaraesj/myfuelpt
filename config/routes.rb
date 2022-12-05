@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   resources :vehicles, only: %i[index new create edit update destroy] do # show not needed.
     resources :vehicle_fuel_types, only: %i[create new]
   end
-  resources :discounts, only: %i[index new create] # show not needed.
+  resources :discounts, only: %i[index] do # new e create dos discounts serão feitos diretamente na BD.
+    resources :user_discounts, only: %i[create]
+  end
+  resources :user_discounts, only: %i[destroy]
 end
