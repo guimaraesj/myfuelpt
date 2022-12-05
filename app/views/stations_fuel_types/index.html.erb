@@ -147,7 +147,7 @@
                 <h6><strong><%=sft.station.brand %></strong></h6>
               </div>
               <div class="d-flex justify-content-center">
-                <h6 class ="">Aberto-250m <%#=add current hour compared to station schedule%><%#=add distance to location%><%= sft.station.address %></h6>
+                <h6 class ="">Aberto-250m<%#=add current hour compared to station schedule%><%#=add distance to location%><%= truncate(sft.station.address, length:20) %></h6>
               </div>
             </div>
               <%# class=margins-price %>
@@ -156,7 +156,7 @@
 
           <div class="price-movimenteness">
             <div class="d-flex justify-content-center">
-              <p><strong><%= sft.price_per_l %> €/l</strong></p>
+              <p class="mt-2"><strong><%= sft.price_per_l %> €/l</strong></p>
             </div>
             <div class="green-box">
               <p>Pouco Movimentada</p>

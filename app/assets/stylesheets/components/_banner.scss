@@ -16,9 +16,9 @@
 }
 
 .banner {
-  background-size: cover;
   background-position: center;
-  height: 200vh;
+  background: fixed;
+  height: 100vh;
   margin-top: -5px;
 }
 
@@ -31,4 +31,17 @@
   margin: 0;
   color:grey;
   align-items: center;
+  margin-top: 20px;
+}
+
+.banner h2 {
+  font-style: normal;
+  font-family: "Titillium Web";
+  font-size: 16px;
+  font-weight: 600px;
+  margin-top: 580px;
+  text-align: center;
+  align-items: center;
+  // margin-left: 200px;
+  color:grey;
 }

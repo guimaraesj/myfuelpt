@@ -1,18 +1,28 @@
-<div class="container-page">
-  <div class="container_edit_vehicles position-absolute top-50 start-50 translate-middle">
-    <div class="row d-flex">
-      <ul>
-        <% current_user.vehicles.each do |vehicle| %>
-          <div class="margins-brand col-8"><%= vehicle.brand %></div>
-          <div class="margins-model col"><%= vehicle.model %></div>
-          <%= link_to "Edit Vehicle", edit_vehicle_path(vehicle) %>
-        <% end %>
-      </ul>
-    </div>
-
-      <%# <%= link_to "Back",  root_path %>
-      <%= link_to "Create Vehicle",  new_vehicle_path %>
+<div class="container">
+  <div class="container-fluid ">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+      <span class="navbar-toggler-icon "></span>
+    </button>
   </div>
+
+  <% current_user.vehicles.each do |vehicle| %>
+    <div class="card-vehicles">
+      <div class= "row w-100 mt-2">
+        <div class="col-4 text-center"><%= vehicle.brand %></div>
+        <div class="col-4 text-center"><%= vehicle.model %></div>
+        <div class="col-4 text-center"><%= vehicle.real_consumption %>€/L</div>
+        <%= link_to edit_vehicle_path(vehicle) do%>
+          <i class="fa-solid fa-pen" style= "color: #5F6265; font-size: 20px; margin: 10px;"></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class= "card-vehicles d-flex justify-content-center align-items-center" id="new_vehicle_btn" >
+    <%= link_to new_vehicle_path do %>
+      <i class="fa-solid fa-circle-plus" style= "color: #5F6265; font-size: 30px; margin: 10px;"></i>
+    <% end %>
+  </div>
+  <%= link_to stations_fuel_types_path(@fuel_type) do %>
+    <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 25px; margin: 20px;"></i>
+  <% end %>
 </div>
-<%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %>
-<%= link_to "Create Vehicle",  new_vehicle_path %>

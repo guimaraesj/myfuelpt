@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_114122) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "discounts", force: :cascade do |t|
     t.string "brand"
-    t.string "quantity"
     t.integer "min_fuel_l"
     t.integer "max_fuel_l"
     t.datetime "created_at", null: false
@@ -27,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
     t.string "max_user_age"
     t.string "locations_applied"
     t.string "discount_type"
+    t.float "quantity"
   end
 
   create_table "fuel_types", force: :cascade do |t|
@@ -81,8 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.bigint "discount_id"
-    t.index ["discount_id"], name: "index_users_on_discount_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -110,7 +108,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_01_125436) do
   add_foreign_key "stations_fuel_types", "stations"
   add_foreign_key "user_discounts", "discounts"
   add_foreign_key "user_discounts", "users"
-  add_foreign_key "users", "discounts"
   add_foreign_key "vehicle_fuel_types", "fuel_types"
   add_foreign_key "vehicle_fuel_types", "vehicles"
   add_foreign_key "vehicles", "users"
