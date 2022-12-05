@@ -29,6 +29,6 @@ class StationsFuelTypesController < ApplicationController
       end
     end
     # método de sort de array:
-    @stations_fuel_types.sort_by! { |sft| sft.price_per_l }
+    @stations_fuel_types.sort_by { |sft| sft.price_per_l }
   end
 end
