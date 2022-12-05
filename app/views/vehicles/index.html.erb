@@ -1,20 +1,4 @@
 <div class="container-page">
-  <nav class=" navbar-size navbar navbar-white bg-white fixed-top justify-content-center ">
-    <div class="container-fluid ">
-      <a class="navbar-brand text-danger fw-semibold " href="#">myFuel.pt</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-        <span class="navbar-toggler-icon "></span>
-      </button>
-    </div>
-      <div class= "prevision-card d-flex">
-        <div><p class="text-prevision ">A previsao da próxima semana, estima uma descida de 5 cêntimos. Se puder aguarde</p></div>
-         <div class="prevision-card-img ">
-          <i class=" card-arrow fa-solid fa-arrow-down" style="color: #82CD47"></i>
-         </div>
-      </div>
-  </nav>
-
-
   <div class="container_edit_vehicles position-absolute top-50 start-50 translate-middle">
     <div class="row d-flex">
       <ul>
@@ -32,4 +16,3 @@
 </div>
 <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %>
 <%= link_to "Create Vehicle",  new_vehicle_path %>
-
