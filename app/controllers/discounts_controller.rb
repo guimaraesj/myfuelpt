@@ -9,6 +9,9 @@ class DiscountsController < ApplicationController
     #@discounts = policy_scope(Discount)
     #@discounts = Discount.all
     @discounts = Discount.all#.where(user: current_user)
+    @my_discounts = current_user.discounts
+    @other_discounts = @discounts - @my_discounts
+    @user_discount = UserDiscount.new
   end
 
   # def new
