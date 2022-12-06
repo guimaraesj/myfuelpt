@@ -1,7 +1,7 @@
 <%= render "shared/navbar" %>
 <div class="container my-4">
-  <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %> <!--ver se fica aqui ou como fica..-->
-  <h1>My Discount List</h1>
+  <%# <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %> <!--ver se fica aqui ou como fica..-->
+   <h1>My Discount List</h1>
     <!--Accordion wrapper-->
     <% if current_user.discounts.empty? %>
       <p>You haven't added any discounts yet</p>
@@ -27,26 +27,27 @@
             <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
               data-parent="#accordionEx">
               <div class="card-body">
-                <p style="display: inline;"><strong>Brand: </strong></p><%= discount.brand %>
-                <p style="display: inline;"><strong>Quantity: </strong></p><%= discount.quantity %><p style="display: inline;">€/L</p>
-                <p style="display: inline;"><strong>Card: </strong></p><%= discount.card %>
-                <p style="display: inline;"><strong>Description: </strong></p><%= discount.description %>
+                <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
+                <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
+                <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
+                <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
+                <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
+
                 <% if discount.min_fuel_l != 0 %>
-                  <p style="display: inline;"><strong>Min Liters: </strong></p><%= discount.min_fuel_l %>
+                  <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
                 <% end %>
                 <% if discount.max_fuel_l != 999%>
-                  <p style="display: inline;"><strong>Max Liters: </strong></p><%= discount.max_fuel_l %>
+                  <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
                 <% end %>
                 <% if discount.min_user_age %>
-                  <p style="display: inline;"><strong>Min User Age: </strong></p><%= discount.min_user_age %>
+                  <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
                 <% end %>
                 <% if discount.max_user_age %>
-                  <p style="display: inline;"><strong>Max User Age: </strong></p><%= discount.max_user_age %>
+                  <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
                 <% end %>
                 <% if discount.locations_applied %>
-                  <p style="display: inline;"><strong>Locations Applied: </strong></p><%= discount.locations_applied %>
+                  <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
                 <% end %>
-                  <p style="display: inline;"><strong>Discount Type: </strong></p><%= discount.discount_type %>
               </div>
             </div>
           </div>
@@ -66,34 +67,33 @@
                 <%= link_to discount_user_discounts_path(discount) do %>
                   <i class="fa-solid fa-circle-plus"></i>
                 <% end %>
-                <p style="display: inline;"><strong>Brand: </strong></p><%= discount.brand %>
-                <p style="display: inline;"><strong>Quantity: </strong></p><%= discount.quantity %><p style="display: inline;">€/L</p>
-                <p style="display: inline;"><strong>Card: </strong></p><%= discount.card %>
-                <p style="display: inline;"><strong>Description: </strong></p><%= discount.description %>
+                <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
+                <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
+                <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
+                <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
+                <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
                 <% if discount.min_fuel_l != 0 %>
-                  <p style="display: inline;"><strong>Min Liters: </strong></p><%= discount.min_fuel_l %>
+                  <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
                 <% end %>
                 <% if discount.max_fuel_l != 999%>
-                  <p style="display: inline;"><strong>Max Liters: </strong></p><%= discount.max_fuel_l %>
+                  <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
                 <% end %>
                 <% if discount.min_user_age %>
-                  <p style="display: inline;"><strong>Min User Age: </strong></p><%= discount.min_user_age %>
+                  <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
                 <% end %>
                 <% if discount.max_user_age %>
-                  <p style="display: inline;"><strong>Max User Age: </strong></p><%= discount.max_user_age %>
+                  <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
                 <% end %>
                 <% if discount.locations_applied %>
-                  <p style="display: inline;"><strong>Locations Applied: </strong></p><%= discount.locations_applied %>
+                  <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
                 <% end %>
-                  <p style="display: inline;"><strong>Discount Type: </strong></p><%= discount.discount_type %>
-              </p>
             </div>
             <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
           </li>
         <% end %>
       </ul>
   <%# <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>
-      <%= link_to root_path do %>
+      <%= link_to stations_fuel_types_path do %>
         <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 25px; margin: 20px;"></i>
       <% end %>
 </div>

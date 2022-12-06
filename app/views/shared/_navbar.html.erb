@@ -3,7 +3,7 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png", class: "logo"%>
     <% end %>
-      <div id="navbarSupportedContent">
+      <div id="navbarSupportedContent d-flex justify-content-between">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
               <p> Hello <%= current_user.first_name %></p>
