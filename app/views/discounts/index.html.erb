@@ -8,61 +8,20 @@
     <% else %>
     <!---------------------show user discounts: ----------------->
       <!-- Accordion card -->
-      <% current_user.discounts.each do |discount| %>
-        <div class="card" style="background-color: aquamarine;">
-          <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
-            <!-- Card header -->
-            <div class="card-header" role="tab" id="headingOne1">
-              <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
-                aria-controls="collapseOne1">
-                <h5 class="mb-0">
-                  <%#=card name:%><%= discount.card %> - <%= truncate(discount.description, length:10) %> <i class="fas fa-angle-down rotate-icon"></i>
-                </h5>
-                <%= link_to user_discount_path(discount) do %>
+      <% @my_discounts.each do |discount| %>
+        <div class="accordion" id="userDiscounts">
+        <% current_user_accordeon=1 %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id=<%="heading#{current_user_accordeon}"%>>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{current_user_accordeon}"%> aria-expanded="false" aria-controls=<%="collapse#{current_user_accordeon}"%>>
+                <%= link_to user_discount_path(UserDiscount.find_by(discount: discount, user: current_user)), data: { turbo_method: "delete" } do %>
                   <i class="fa-solid fa-circle-minus"></i>
                 <% end %>
-              </a>
-            </div>
-            <!-- Card body -->   <!-- ITERAR AQUI NO ID DO DISCOUNT PARA O COLLAPSE FUNCIONAR?? -->
-            <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
-              data-parent="#accordionEx">
-              <div class="card-body">
-                <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
-                <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
-                <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
-                <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
-                <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
-
-                <% if discount.min_fuel_l != 0 %>
-                  <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
-                <% end %>
-                <% if discount.max_fuel_l != 999%>
-                  <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
-                <% end %>
-                <% if discount.min_user_age %>
-                  <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
-                <% end %>
-                <% if discount.max_user_age %>
-                  <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
-                <% end %>
-                <% if discount.locations_applied %>
-                  <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-  <h1>Available Discounts</h1>
-    <!---------------------show all discounts: ----------------->
-      <ul class="list-group ListStyle" data-discounts-index-target="list">
-        <% @discounts.each do |discount| %>
-          <li class="list-group-item d-flex justify-content-between" data-controller = "discounts-index">
-            <div class="wishlist-infos" data-discounts-index-target="discounts-index">
-              <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
-              <p class="d-none mt-1" data-discounts-index-target="form">
+                <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
+              </button>
+            </h2>
+            <div id=<%="collapse#{current_user_accordeon}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{current_user_accordeon}"%> data-bs-parent="#userDiscounts">
+              <div class="accordion-body">
                 <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
                 <%= link_to discount_user_discounts_path(discount) do %>
                   <i class="fa-solid fa-circle-plus"></i>
@@ -87,15 +46,69 @@
                 <% if discount.locations_applied %>
                   <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
                 <% end %>
+              </div>
+              <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
             </div>
-            <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
-          </li>
-        <% end %>
-      </ul>
-  <%# <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>
+          </div>
+        </div>
+        <% current_user_accordeon+=1 %>
+      <% end %>
+    <% end %>
+
+  <!---------------------show all discounts: ----------------->
+  <h1>Available Discounts</h1>
+  <!---------------------a lista dos all discounts é a que não estiver nos user discounts ----------------->
+    <% @other_discounts.each do |discount| %>
+      <div class="accordion" id="allDiscounts">
+        <% acordeon_id=1 %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id=<%="heading#{acordeon_id}"%>>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{acordeon_id}"%> aria-expanded="false" aria-controls=<%="collapse#{acordeon_id}"%>>
+                <div class="container">
+                <%= simple_form_for([discount, @user_discount]) do |f| %>
+                  <%= f.submit class: "btn btn-primary"%>
+                  <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
+                <% end %>
+              </div>
+                <!-----------------Eliminar abaixo após estilizar -------------->
+                <%= link_to discount_user_discounts_path(discount) do %>
+                  <i class="fa-solid fa-circle-plus"></i>
+                <% end %>
+                <!-----------------Eliminar acima após estilizar --------------->
+                <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
+              </button>
+            </h2>
+            <div id=<%="collapse#{acordeon_id}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{acordeon_id}"%> data-bs-parent="#allDiscounts">
+              <div class="accordion-body">
+                <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
+                <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
+                <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
+                <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
+                <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
+                <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
+                <% if discount.min_fuel_l != 0 %>
+                  <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
+                <% end %>
+                <% if discount.max_fuel_l != 999%>
+                  <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
+                <% end %>
+                <% if discount.min_user_age %>
+                  <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
+                <% end %>
+                <% if discount.max_user_age %>
+                  <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
+                <% end %>
+                <% if discount.locations_applied %>
+                  <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
+                <% end %>
+              </div>
+              <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
+            </div>
+          </div>
+        </div>
+      <% acordeon_id+=1 %>
+    <% end %>
       <%= link_to stations_fuel_types_path do %>
         <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 25px; margin: 20px;"></i>
       <% end %>
 </div>
-
-  <%# <%= link_to "Create Discount", new_discount_path,  class: "btn btn-flat" %>

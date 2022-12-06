@@ -10,10 +10,12 @@ class UserDiscountsController < ApplicationController
   end
 
   def create
-    @user_discount = UserDiscount.create(discount_params)
+    @user_discount = UserDiscount.new
+    @user_discount.user = current_user
+    @user_discount.discount = Discount.find(params[:discount_id])
     # @user_discount.user = current_user
     if @user_discount.save
-      redirect_to discounts_path(@user_discount)
+      redirect_to discounts_path
     else
       render :new, status: :unprocessable_entity
     end
