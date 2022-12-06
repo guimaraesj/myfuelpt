@@ -6,7 +6,7 @@
       <div id="navbarSupportedContent">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <p> Hello <%= current_user.first_name %></p>
+              <p> Hello <%= current_user.first_name %></p>
             <li class="nav_item_dropdown">
               <%= image_tag("https://www.freeiconspng.com/uploads/menu-icon-8.png", { class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false }) %>
               <div class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdown">
