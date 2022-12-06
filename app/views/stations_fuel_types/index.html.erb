@@ -147,10 +147,10 @@
               </div>
               <div class="container p-0">
                 <div class="d-flex justify-content-center">
-                  <h6 class ="text-center"><%= truncate(sft.station.address, length:17) %> <%#=add current hour compared to station schedule%><%#=add distance to location%></h6>
+                  <h6 class ="text-center text mb-0"><%= truncate(sft.station.address, length:25) %> <%#=add current hour compared to station schedule%><%#=add distance to location%></h6>
                 </div>
                 <div class="d-flex justify-content-center">
-                <h6 class ="text-center">Aberto-250m</h6>
+                <h6 class ="text-center text mb-0">Aberto-250m</h6>
                 </div>
               </div>
             </div>
@@ -158,13 +158,26 @@
               <%#= preços com descontos vão aparecer aqui:%>
           </div>
 
-          <div class="price-movimenteness">
+          <div class="price-movimenteness me-2">
             <div class="d-flex justify-content-center">
-              <p class="mt-2"><strong><%= sft.price_per_l %> €/l</strong></p>
+              <p class="mt-3"><strong><%= sft.price_per_l %> €/l</strong></p>
             </div>
-            <div class="green-box">
-              <p>Pouco Movimentada</p>
-            </div>
+            <% array = ["Pouco","Muito","Nada"] %>
+            <% case array.sample %>
+              <% when "Nada" %>
+                <div class="green-box box-sizing text">
+                  <p>Nada Movimentada</p>
+                </div>
+              <% when "Pouco" %>
+                <div class="yellow-box box-sizing text">
+                  <p>Pouco Movimentada</p>
+                </div>
+                <% when "Muito" %>
+                <div class="red-box box-sizing text">
+                  <p>Muito Movimentada</p>
+                </div>
+            <% end %>
+
               <%# acrescentar isto numa feature futura %>
               <%# class=p_adress %>
           </div>
