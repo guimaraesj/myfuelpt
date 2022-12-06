@@ -1,11 +1,15 @@
 .card-station {
   width: auto;
-  height: 100px;
+  height: 80px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   border-radius: 10px;
   margin: 15px ;
+}
+
+.container-stations-card {
+  height:auto;
 }
 
 .card-vehicles {
@@ -53,28 +57,29 @@
 }
 
 .green-box {
-  background-color: #B4FF9F;
-  color: #82CD47;
+  background-color:#E3FFD6;
+  color: $green ;
 }
 
 .yellow-box {
-  background-color: #f7f9886b;
-  color: rgb(247, 247, 4);
+  background-color: $light-yellow;
+  color: $yellow;
 }
 
 .red-box {
-  background-color: rgba(255, 0, 0, 0.507);
-  color: red;
+  background-color: $light-red;
+  color: $red;
 }
 
 .box-sizing {
-  width: 105px;
+  width: 70px;
   border-radius: 25%;
 }
 
 #new_vehicle_btn{
   font-size: 2rem;
 }
+
 
 
 // .fa-solid_fa-circle-plus{
