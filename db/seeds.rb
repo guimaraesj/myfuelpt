@@ -66,8 +66,8 @@ Station.create(
   station_type: "Outro",
   brand: "Galp",
   #services: ["Lavagem Auto", "WC", "ATM", "Loja Tangerina", "Visa", "Multibanco"],#.to_json,
-  services: ["Car-Wash", "WC", "ATM", "Air-Water", "Convenience Store", "Lubricants"],#.to_json,
-  schedule: ["Mon-Sun: 09-20h"]
+  services: "Car-Wash, WC, ATM, Air-Water, Convenience Store, Lubricants",#.to_json,
+  schedule: "Mon-Sun: 09-20h"
 )
 
 puts "Creating Fuel Types and Prices for Station 1..."
@@ -107,8 +107,8 @@ Station.create(
   longitude: -8.68271578161743,
   station_type: "Área comercial (Hipermercados)",
   brand: "Prio",
-  services: ["Air-Water", "Lubricants"],#.to_json,
-  schedule: ["Mon-Sun: 24h"]
+  services: "Air-Water, Lubricants",#.to_json,
+  schedule: "Mon-Sun: 24h"
 )
 puts "Station 2 created"
 puts "Creating Fuel Types and Prices for Station 2..."
@@ -155,8 +155,8 @@ Station.create(
   longitude: -8.307753971534092,
   station_type: "Auto-estrada",
   brand: "Shell",
-  services: ["WC", "Air-Water", "Gas 9kg", "Convenience Store", "Lubricants", "Wi-fi"],#.to_json,
-  schedule: ["Mon-Sun: 07-23h"]
+  services: "WC, Air-Water, Gas 9kg, Convenience Store, Lubricants, Wi-fi",#.to_json,
+  schedule: "Mon-Sun: 07-23h"
 )
 puts "Station 3 created"
 puts "Creating Fuel Types and Prices for Station 3..."
@@ -197,8 +197,8 @@ Station.create(
   longitude: -8.289682350412324,
   station_type: "Outro",
   brand: "Prio",
-  services: ["WC", "Air-Water", "Convenience Store", "Lubricants"],#.to_json,
-  schedule: ["Mon-Sun: 07-23h"]
+  services: "WC, Air-Water, Convenience Store, Lubricants",#.to_json,
+  schedule: "Mon-Sun: 07-23h"
 )
 puts "Station 4 created"
 puts "Creating Fuel Types and Prices for Station 4..."
@@ -238,8 +238,8 @@ Station.create(
   longitude: -8.677973147679213,
   station_type: "Auto-Estrada",
   brand: "Cepsa",
-  services: ["Store", "Car-Wash", "Air-Water", "Lubricants"],#.to_json,
-  schedule: ["Mon-Sun: 24h"]
+  services: "Store, Car-Wash, Air-Water, Lubricants",#.to_json,
+  schedule: "Mon-Sun: 24h"
 )
 puts "Station 5 created"
 puts "Creating Fuel Types and Prices for Station 5..."
@@ -280,8 +280,8 @@ Station.create(
   longitude: -8.677973147679213,
   station_type: "Outro",
   brand: "Q8",
-  services: ["Air-Water", "Convenience Store", "Lubricants"],#.to_json,
-  schedule: ["Mon-Sun: 07-21h"]
+  services: "Air-Water, Convenience Store Lubricants",#.to_json,
+  schedule: "Mon-Sun: 07-21h"
 )
 puts "Station 6 created"
 puts "Creating Fuel Types and Prices for Station 5..."
