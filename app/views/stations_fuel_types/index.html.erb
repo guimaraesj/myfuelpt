@@ -161,7 +161,7 @@
               <% end %>
             </div>
             <div class="d-flex justify-content-end">
-              <p class=""><strong><%= sft.price_per_l %> €/l</strong></p>
+              <p class=""><strong><%= sft.price_per_l.round(3) %> €/l</strong></p>
             </div>
             <% array = ["Busy","Very","Not"] %>
             <% case array.sample %>
