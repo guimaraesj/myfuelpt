@@ -10,7 +10,7 @@ class StationsFuelTypesController < ApplicationController
     if params[:fuel_type_id].present?
       @fuel_type = FuelType.find(params[:fuel_type_id])
     else
-      @fuel_type = FuelType.find_by(name: "Gasóleo Simples")
+      @fuel_type = FuelType.find_by(name: "Simple Diesel")
     end
     @stations_fuel_types = StationsFuelType.where(fuel_type: @fuel_type)
 
