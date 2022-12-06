@@ -18,31 +18,37 @@ Station.destroy_all
 ################################################################################
 puts "Creating FuelTypes..."
 FuelType.create(
-  name: "Gasóleo Simples"
+  name: "Simple Diesel"
 )
 FuelType.create(
-  name: "Gasóleo Colorido"
+  name: "Colorful Diesel"
 )
 FuelType.create(
-  name: "Gasóleo Especial"
+  name: "Advanced Diesel"
 )
 FuelType.create(
   name: "Biodiesel B15"
 )
 FuelType.create(
-  name: "Gasolina Simples 98"
+  name: "Simple Gasoline 98"
 )
 FuelType.create(
-  name: "Gasolina Especial 98"
+  name: "Advanced Gasoline 98"
 )
 FuelType.create(
-  name: "Gasolina Simples 95"
+  name: "Simple Gasoline 95"
 )
 FuelType.create(
-  name: "Gasolina Especial 95"
+  name: "Advanced Gasoline 95"
 )
 FuelType.create(
   name: "GPL Auto"
+)
+FuelType.create(
+  name: "Mixed Gasoline"
+)
+FuelType.create(
+  name: "Top Gasoline"
 )
 puts "Created FuelTypes..."
 ################################################################################
@@ -67,25 +73,25 @@ Station.create(
 puts "Creating Fuel Types and Prices for Station 1..."
 StationsFuelType.create(
   station: Station.find_by(name: "Galp Matosinhos"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.7890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Galp Matosinhos"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.8390,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Galp Matosinhos"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.7690,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Galp Matosinhos"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 98"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 98"),
   price_per_l: 1.8190,
   update_date: "28-11-2022 00:00"
 )
@@ -108,13 +114,13 @@ puts "Station 2 created"
 puts "Creating Fuel Types and Prices for Station 2..."
 StationsFuelType.create(
   station: Station.find_by(name: "Matosinhos-Norauto"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.6890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Matosinhos-Norauto"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.6390,
   update_date: "28-11-2022 00:00"
 )
@@ -126,13 +132,13 @@ StationsFuelType.create(
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Matosinhos-Norauto"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.6790,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Matosinhos-Norauto"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 95"),
   price_per_l: 1.6090,
   update_date: "28-11-2022 00:00"
 )
@@ -156,25 +162,25 @@ puts "Station 3 created"
 puts "Creating Fuel Types and Prices for Station 3..."
 StationsFuelType.create(
   station: Station.find_by(name: "Creixomil"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.8890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Creixomil"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.8390,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Creixomil"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.8790,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Creixomil"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 95"),
   price_per_l: 1.8090,
   update_date: "28-11-2022 00:00"
 )
@@ -198,25 +204,25 @@ puts "Station 4 created"
 puts "Creating Fuel Types and Prices for Station 4..."
 StationsFuelType.create(
   station: Station.find_by(name: "Guimarães"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.8890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Guimarães"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.6890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Guimarães"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.6790,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Guimarães"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 95"),
   price_per_l: 1.6090,
   update_date: "28-11-2022 00:00"
 )
@@ -239,25 +245,25 @@ puts "Station 5 created"
 puts "Creating Fuel Types and Prices for Station 5..."
 StationsFuelType.create(
   station: Station.find_by(name: "Posto de abastecimento Cepsa MATOSINHOS"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.6890,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Posto de abastecimento Cepsa MATOSINHOS"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.6190,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Posto de abastecimento Cepsa MATOSINHOS"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.6790,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Posto de abastecimento Cepsa MATOSINHOS"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 95"),
   price_per_l: 1.6090,
   update_date: "28-11-2022 00:00"
 )
@@ -281,43 +287,43 @@ puts "Station 6 created"
 puts "Creating Fuel Types and Prices for Station 5..."
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
   price_per_l: 1.6290,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial"),
+  fuel_type: FuelType.find_by(name: "Advanced Diesel"),
   price_per_l: 1.6590,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasóleo Colorido"),
+  fuel_type: FuelType.find_by(name: "Colorful Diesel"),
   price_per_l: 1.3090,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples 95"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
   price_per_l: 1.6040,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 95"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 95"),
   price_per_l: 1.6140,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasolina Especial 98"),
+  fuel_type: FuelType.find_by(name: "Advanced Gasoline 98"),
   price_per_l: 1.7840,
   update_date: "28-11-2022 00:00"
 )
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
-  fuel_type: FuelType.find_by(name: "Gasolina Mistura"),
+  fuel_type: FuelType.find_by(name: "Mixed Gasoline"),
   price_per_l: 2.2010,
   update_date: "28-11-2022 00:00"
 )
@@ -417,11 +423,11 @@ puts "Created Vehicles."
 puts "Associating Fuel Types for vehicle 1..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "Rio").find_by(user: User.find_by(first_name: "Jorge")),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples")
+  fuel_type: FuelType.find_by(name: "Simple Diesel")
 )
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "Rio").find_by(user: User.find_by(first_name: "Jorge")),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial")
+  fuel_type: FuelType.find_by(name: "Advanced Diesel")
 )
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "Rio").find_by(user: User.find_by(first_name: "Jorge")),
@@ -430,39 +436,39 @@ VehicleFuelType.create(
 puts "Associating Fuel Types for vehicle 2..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "PCX").find_by(user: User.find_by(first_name: "Jorge")),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples")
+  fuel_type: FuelType.find_by(name: "Simple Gasoline")
 )
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "PCX").find_by(user: User.find_by(first_name: "Jorge")),
-  fuel_type: FuelType.find_by(name: "Gasolina Top")
+  fuel_type: FuelType.find_by(name: "Top Gasoline")
 )
 puts "Associating Fuel Types for vehicle 3..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "750").find_by(user: User.find_by(first_name: "Francisco")),
-  fuel_type: FuelType.find_by(name: "Gasolina Top")
+  fuel_type: FuelType.find_by(name: "Top Gasoline")
 )
 puts "Associating Fuel Types for vehicle 4..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "320").find_by(user: User.find_by(first_name: "Francisco")),
-  fuel_type: FuelType.find_by(name: "Gasóleo Simples")
+  fuel_type: FuelType.find_by(name: "Simple Diesel")
 )
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "320").find_by(user: User.find_by(first_name: "Francisco")),
-  fuel_type: FuelType.find_by(name: "Gasóleo Especial")
+  fuel_type: FuelType.find_by(name: "Advanced Diesel")
 )
 puts "Associating Fuel Types for vehicle 5..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "250").find_by(user: User.find_by(first_name: "Manuel")),
-  fuel_type: FuelType.find_by(name: "Gasolina Simples")
+  fuel_type: FuelType.find_by(name: "Simple Gasoline")
 )
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "250").find_by(user: User.find_by(first_name: "Manuel")),
-  fuel_type: FuelType.find_by(name: "Gasolina Top")
+  fuel_type: FuelType.find_by(name: "Top Gasoline")
 )
 puts "Associating Fuel Types for vehicle 6..."
 VehicleFuelType.create(
   vehicle: Vehicle.where(model: "Prius").find_by(user: User.find_by(first_name: "Manuel")),
-  fuel_type: FuelType.find_by(name: "Gasolina Top")
+  fuel_type: FuelType.find_by(name: "Top Gasoline")
 )
 puts "Finished associating Fuel Types to vehicles"
 ################################################################################

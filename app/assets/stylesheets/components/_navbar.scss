@@ -2,7 +2,6 @@
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid #665e5e3b;
-
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,4 +20,9 @@
     color: rgb(0, 0, 0);
     text-decoration: none;
     transition: color 0.15s
+}
+
+.user-hamburguer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
