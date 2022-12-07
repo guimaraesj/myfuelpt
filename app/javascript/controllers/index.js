@@ -18,6 +18,3 @@ application.register("map", MapController)
 
 import PositionController from "./position_controller"
 application.register("position", PositionController)
-
-import TooltipController from "./tooltip_controller"
-application.register("tooltip", TooltipController)
