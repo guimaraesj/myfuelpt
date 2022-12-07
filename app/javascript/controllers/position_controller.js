@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   connect() {
-    if (!this.coordsValue) {
+    if (!this.coordsValue) { //if it doesn't have coordinates, it runs method to get them
       navigator.geolocation.getCurrentPosition((position) => {
         this.#sendCurrentPosition(position)
       })
