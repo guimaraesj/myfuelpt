@@ -18,3 +18,6 @@ application.register("map", MapController)
 
 import PositionController from "./position_controller"
 application.register("position", PositionController)
+
+import StationsOrderController from "./stations_order_controller"
+application.register("stations-order", StationsOrderController)
