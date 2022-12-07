@@ -1,0 +1,5 @@
+meta_name: "MyFuelpt"
+meta_title: "MyFuelpt - Save Money. Fuel with your discounts"
+meta_description: "Portugal Fuel Prices with your discounts "
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@your_twitter_account"   # required for Twitter Cards
