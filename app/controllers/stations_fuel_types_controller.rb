@@ -34,6 +34,7 @@ class StationsFuelTypesController < ApplicationController
     if params[:user_lat] && params[:user_lng]
       @stations_fuel_types.each do |sft|
         sft.distance = Geocoder::Calculations.distance_between([params[:user_lat], params[:user_lng]], [sft.station.latitude, sft.station.longitude])
+        sft.distance = sft.distance.round(2)
       end
       # @sft_by_distance = @stations_fuel_types.sort_by { |sft| sft.distance } # usar essa variavel para aplicar o botão by_distance
       @stations_fuel_types = @stations_fuel_types.sort_by { |sft| sft.distance }

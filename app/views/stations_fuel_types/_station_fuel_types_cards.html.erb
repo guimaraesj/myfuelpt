@@ -9,7 +9,7 @@
     <h4 class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= fuel_type.name %></h4>
     <%# passamos o elemento da navbar para elemento html %>
   </li>
-  <h5 class="text">Prices updated 2 days ago</h5>
+  <h5 class="text">Prices updated 4 days ago</h5>
   <%#=colocar aqui a data de atualização do ficheiro quando houver API %>
 
     <div class="card-prevision">
@@ -132,7 +132,6 @@
               <%= image_tag "https://cdn.w600.comps.canstockphoto.com.br/medida-combust%C3%ADvel-cliparte_csp8240711.jpg", class: "logo-square", alt: "avatar" %>
             <% end %>
           </div>
-
           <div>
             <div>
               <div  class="d-flex justify-content-center mt-2">
@@ -143,7 +142,7 @@
                   <h6 class ="text-center text mb-0"><%= truncate(sft.station.address, length:25) %> <%#=add current hour compared to station schedule%><%#=add distance to location%></h6>
                 </div>
                 <div class="d-flex justify-content-center">
-                <h6 class ="text-center text mb-0">Open-250m</h6>
+                <h6 class ="text-center text mb-0">Open - <%= sft.distance %>km</h6>
                 </div>
               </div>
             </div>
