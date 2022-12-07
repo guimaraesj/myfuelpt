@@ -1,5 +1,4 @@
 <div class="container my-4">
-  <%# <%= link_to "Back to Stations", stations_fuel_types_path(@fuel_type) %> <!--ver se fica aqui ou como fica..-->
    <h1>My Discount List</h1>
     <!--Accordion wrapper-->
     <% if current_user.discounts.empty? %>
@@ -21,10 +20,6 @@
             </h2>
             <div id=<%="collapse#{current_user_accordeon}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{current_user_accordeon}"%> data-bs-parent="#userDiscounts">
               <div class="accordion-body">
-                <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
-                <%= link_to discount_user_discounts_path(discount) do %>
-                  <i class="fa-solid fa-circle-plus fa-2xl me-2 pb-3", style="color: #FF4E4E"></i>
-                <% end %>
                 <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
                 <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
                 <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
@@ -46,7 +41,6 @@
                   <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
                 <% end %>
               </div>
-              <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
             </div>
           </div>
         </div>
@@ -65,12 +59,10 @@
               <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{acordeon_id}"%> aria-expanded="false" aria-controls=<%="collapse#{acordeon_id}"%>>
                 <div class="container-accordion ">
                   <%= simple_form_for([discount, @user_discount]) do |f| %>
-                    <%= f.submit class: "plus-button btn btn-primary me-2", value:"+", style: "border-radius: 50%; font-weight:bold;"  %>
+                    <%= f.submit class: "plus-button btn btn-primary me-2", value:"+", style: "border-radius: 50%; font-weight:bolder;"  %>
                     <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
                   <% end %>
                 </div>
-                <!-----------------Eliminar abaixo após estilizar -------------->
-                <!-----------------Eliminar acima após estilizar --------------->
                 <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
               </button>
             </h2>
@@ -98,7 +90,6 @@
                   <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
                 <% end %>
               </div>
-              <i class="fa-solid fa-chevron-down" data-action="click->display-info#displayForm"></i>
             </div>
           </div>
         </div>
