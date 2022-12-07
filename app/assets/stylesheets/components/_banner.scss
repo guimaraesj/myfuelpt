@@ -20,6 +20,7 @@
   background: fixed;
   height: 100vh;
   margin-top: -5px;
+  overflow: hidden;
 }
 
 .banner h1 {
@@ -39,7 +40,8 @@
   font-family: "Titillium Web";
   font-size: 16px;
   font-weight: 600px;
-  margin-top: 580px;
+  margin-top: 630px;
+  margin-right: 120px;
   text-align: center;
   align-items: center;
   // margin-left: 200px;
