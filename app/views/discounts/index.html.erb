@@ -15,7 +15,7 @@
             <h2 class="accordion-header" id=<%="heading#{current_user_accordeon}"%>>
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{current_user_accordeon}"%> aria-expanded="false" aria-controls=<%="collapse#{current_user_accordeon}"%>>
                 <%= link_to user_discount_path(UserDiscount.find_by(discount: discount, user: current_user)), data: { turbo_method: "delete" } do %>
-                  <i class="fa-solid fa-circle-minus"></i>
+                  <i class="fa-solid fa-circle-minus fa-2xl me-2", style="color: #FF4E4E" ></i>
                 <% end %>
                 <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
               </button>
@@ -24,7 +24,7 @@
               <div class="accordion-body">
                 <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
                 <%= link_to discount_user_discounts_path(discount) do %>
-                  <i class="fa-solid fa-circle-plus"></i>
+                  <i class="fa-solid fa-circle-plus fa-2xl me-2 pb-3", style="color: #FF4E4E"></i>
                 <% end %>
                 <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
                 <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
@@ -63,17 +63,14 @@
         <% acordeon_id=1 %>
           <div class="accordion-item">
             <h2 class="accordion-header" id=<%="heading#{acordeon_id}"%>>
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{acordeon_id}"%> aria-expanded="false" aria-controls=<%="collapse#{acordeon_id}"%>>
-                <div class="container">
-                <%= simple_form_for([discount, @user_discount]) do |f| %>
-                  <%= f.submit class: "btn btn-primary"%>
-                  <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
-                <% end %>
-              </div>
+              <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{acordeon_id}"%> aria-expanded="false" aria-controls=<%="collapse#{acordeon_id}"%>>
+                <div class="container-accordion ">
+                  <%= simple_form_for([discount, @user_discount]) do |f| %>
+                    <%= f.submit class: "plus-button btn btn-primary me-2", value:"+", style: "border-radius: 50%; font-weight:bold;"  %>
+                    <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
+                  <% end %>
+                </div>
                 <!-----------------Eliminar abaixo após estilizar -------------->
-                <%= link_to discount_user_discounts_path(discount) do %>
-                  <i class="fa-solid fa-circle-plus"></i>
-                <% end %>
                 <!-----------------Eliminar acima após estilizar --------------->
                 <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
               </button>
