@@ -6,18 +6,15 @@
       <div id="navbarSupportedContent d-flex justify-content-between">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
-
-          <div class= "user-hamburguer d-flex align-items-center justify-content-center" >
-            <div>
-              <p class= " mb-0"> Hello <%= current_user.first_name %></p>
+            <div class= "user-hamburguer d-flex align-items-center justify-content-center" >
+              <div>
+                <p class= " mb-0"> Hello <%= current_user.first_name %></p>
+              </div>
+              <li class="nav_item_dropdown">
+              <div>
+                <%= image_tag("https://www.freeiconspng.com/uploads/menu-icon-8.png", { class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false }) %>
+              </div>
             </div>
-
-              <p> Hello <%= current_user.first_name %></p>
-            <li class="nav_item_dropdown">
-            <div>
-              <%= image_tag("https://www.freeiconspng.com/uploads/menu-icon-8.png", { class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false }) %>
-            </div>
-          </div>
             <div class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdown">
               <%= link_to "Stations", stations_fuel_types_path(@fuel_type), class: "dropdown-item" %>
               <%= link_to "Discounts", discounts_path, class: "dropdown-item" %>

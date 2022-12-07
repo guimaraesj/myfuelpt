@@ -16,7 +16,7 @@ export default class extends Controller {
     if (this.markersValue.length) { //length estava escrito como lenght.
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
-      this.#getUserLocation() //added to get user location
+      //this.#getUserLocation() //added to get user location
 
     } else {
       this.#addMarkerToMap()
