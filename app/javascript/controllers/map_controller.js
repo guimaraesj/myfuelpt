@@ -16,7 +16,6 @@ export default class extends Controller {
     if (this.markersValue.length) { //length estava escrito como lenght.
       this.#addMarkersToMap()
       this.#fitMapToMarkers()
-      this.#getUserLocation() //added to get user location
 
     } else {
       this.#addMarkerToMap()
@@ -51,32 +50,4 @@ export default class extends Controller {
     bounds.extend([ this.markerValue.lng, this.markerValue.lat ])
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
-
-  //new function to get user location:
-  //link: https://docs.mapbox.com/mapbox-gl-js/api/markers/#geolocatecontrol
-  #getUserLocation() {
-    map.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-        enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-      })
-    );
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.start = [position.coords.lng, position.coords.LngLatBounds]
-      // this.start = [10,10]
-      this.connectRoute() //falta definir esta função.
-    })
-  }
 }
-
-//this goes where??
-//https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup#getlnglat
-// Store the marker's longitude and latitude coordinates in a variable
-// const lngLat = marker.getLngLat();
-// Print the marker's longitude and latitude values in the console
-// console.log(`Longitude: ${lngLat.lng}, Latitude: ${lngLat.lat}`);
