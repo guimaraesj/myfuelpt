@@ -2,13 +2,18 @@
   align-items: center;
   // color: white; //do not add or station cards text will be white
   padding: 8px 24px;
-  border-radius: 4px;
-  background: 255, 78, 78;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
+  background: #949494;
+  border-radius: 15px;
+  width: Color-grey;
+  // width: 80px;
+  margin-top: 10px;
+  height: 40px;
+  color: white;
 }
 
 .btn-flat:hover {
-  background:255, 78, 78;
+  background: #333333;
   color: white;
 }
 
