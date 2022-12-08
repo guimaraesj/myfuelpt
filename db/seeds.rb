@@ -284,7 +284,7 @@ Station.create(
   schedule: "Mon-Sun: 07-21h"
 )
 puts "Station 6 created"
-puts "Creating Fuel Types and Prices for Station 5..."
+puts "Creating Fuel Types and Prices for Station 6..."
 StationsFuelType.create(
   station: Station.find_by(name: "Q8 Canidelo"),
   fuel_type: FuelType.find_by(name: "Simple Diesel"),
@@ -328,6 +328,55 @@ StationsFuelType.create(
   update_date: "28-11-2022 00:00"
 )
 puts "Finished Creating Fuel Types and Prices for Station 6."
+
+puts "Creating Station 7..."
+Station.create(
+  name: "AB de Landim",
+  address: "EN 204/5, nº 2035",
+  city: "Vila Nova de Famalicão",
+  zip_code: "4770-309",
+  district: "Braga",
+  latitude: 41.379211,
+  longitude: -8.451646,
+  station_type: "Outro",
+  brand: "Alves Bandeira",
+  services: "Air-Water, Convenience Store Lubricants",#.to_json,
+  schedule: "Mon-Sun: 07-21h"
+)
+puts "Station 7 created"
+puts "Creating Fuel Types and Prices for Station 7..."
+StationsFuelType.create(
+  station: Station.find_by(name: "AB de Landim"),
+  fuel_type: FuelType.find_by(name: "Simple Diesel"),
+  price_per_l: 1.7290,
+  update_date: "05-12-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "AB de Landim"),
+  fuel_type: FuelType.find_by(name: "Colorful Diesel"),
+  price_per_l: 1.349,
+  update_date: "05-12-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "AB de Landim"),
+  fuel_type: FuelType.find_by(name: "GPL Auto"),
+  price_per_l: 0.934,
+  update_date: "05-12-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "AB de Landim"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 95"),
+  price_per_l: 1.709,
+  update_date: "05-12-2022 00:00"
+)
+StationsFuelType.create(
+  station: Station.find_by(name: "AB de Landim"),
+  fuel_type: FuelType.find_by(name: "Simple Gasoline 98"),
+  price_per_l: 1.914,
+  update_date: "05-12-2022 00:00"
+)
+puts "Finished Creating Fuel Types and Prices for Station 6."
+
 puts "Created Stations."
 ################################################################################
 puts "Creating Discounts"
@@ -344,6 +393,42 @@ Discount.create(
   quantity: 0.14, min_fuel_l: 0, max_fuel_l: 999,
   description: "14 cênt/l em combustível Galp em Cartão Continente",
   locations_applied: "Continente, Madeira e Açores", discount_type: "Em cartão Continente"
+)
+Discount.create(
+  card: "Cartão Débito Santander", brand: "Repsol",
+  quantity: 0.05, min_fuel_l: 0, max_fuel_l: 999,
+  description: "5 cênt/l em combustível Repsol",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
+)
+Discount.create(
+  card: "Cartão ACP", brand: "BP",
+  quantity: 0.15, min_fuel_l: 0, max_fuel_l: 999,
+  description: "15 cênt/l em combustível BP Ultimate, todos os dias 15 de cada mês",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
+)
+Discount.create(
+  card: "Cartão ACP", brand: "BP",
+  quantity: 0.10, min_fuel_l: 0, max_fuel_l: 999,
+  description: "10 cênt/l em combustível BP Ultimate, aos dias 10, 20 e 30 de cada mês",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
+)
+Discount.create(
+  card: "Cartão ACP", brand: "BP",
+  quantity: 0.06, min_fuel_l: 0, max_fuel_l: 999,
+  description: "6 cênt/l em combustível BP Simples, todos os dias excepto 10, 15, 20 e 30 de cada mês",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
+)
+Discount.create(
+  card: "Cartão ACP", brand: "BP",
+  quantity: 0.09, min_fuel_l: 0, max_fuel_l: 999,
+  description: "9 cênt/l em combustível BP Ultimate, todos os dias excepto 10, 15, 20 e 30 de cada mês",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
+)
+Discount.create(
+  card: "Porque eu volto", brand: "Cepsa",
+  quantity: 0.07, min_fuel_l: 0, max_fuel_l: 999,
+  description: "7 cênt/l em combustível Optima",
+  locations_applied: "Continente, Madeira e Açores", discount_type: "Direto"
 )
 puts "Finished creating discounts"
 
