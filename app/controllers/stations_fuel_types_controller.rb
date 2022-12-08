@@ -3,7 +3,6 @@ class StationsFuelTypesController < ApplicationController
     # Pundit: allow-list approach
     # after_action :verify_authorized, except: %i[index], unless: :skip_pundit?
     # after_action :verify_policy_scoped, only: %i[index], unless: :skip_pundit?
-
   def index
     # @fuel_type = FuelType.find(params[:fuel_type_id])
     @fuel_types = FuelType.all
@@ -23,7 +22,7 @@ class StationsFuelTypesController < ApplicationController
               sft.price_per_l
             end
           end
-          sft.price_per_l = prices.min if prices.any? #convert prices into array
+          sft.price_per_l = prices.compact.min if prices.any? #convert prices into array
         end
         sft
       end
