@@ -14,6 +14,7 @@ export default class extends Controller {
   orderByPrice() {
     this.sortbydistanceTarget.classList.add("d-none")
     this.sortbypriceTarget.classList.remove("d-none")
+    //this.sortbypriceTarget.classList.add("btn-flat:hover")
   }
 
   orderByDistance() {
