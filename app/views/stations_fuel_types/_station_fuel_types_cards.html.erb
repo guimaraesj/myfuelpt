@@ -23,26 +23,8 @@
       </div>
     </div>
 
-  <!--Button to order by price-->
-  <!--Logica:
-     1. Cards numa partial com variavel local que é os prices: na 1ª passa o sft_by_price e na 2ª passa o sft_by_distance
-     2. dar d-none numa target-data:
-      price-list-target classlist: ...
-      na outra dar distance-list-target com classlist d-none default.
-      -->
-     <!--Button to order by price-->
-
-  <!--Vai fazer um render na mesma página, por isso tem de ser ajax??-->
-<<<<<<< small_bugs
-  <div class="d-flex" style="justify-content: space-around; margin-top: 0px; margin-bottom: -15px;">
-    <div>
-      <button class="btn btn-flat" data-action="click->stations-order#orderbyprice">Price</button>
-    </div>
-    <div>
-      <button class="btn btn-flat" data-action="click->stations-order#orderbydistance">Distance</button>
-=======
   <div data-controller="stations-order">
-    <div class="d-flex" style="justify-content: space-around">
+    <div class="d-flex" style="justify-content: space-around; margin-top: 0px; margin-bottom: -15px;">
       <div>
         <button class="btn btn-flat" data-action="click->stations-order#orderByPrice">Price</button>
       </div>
@@ -51,9 +33,6 @@
       </div>
       <div>
         <button class="btn btn-flat">Smart</button>
-        <%#= link_to "Smart", "#", class: "disabled btn btn-flat" %>
-      </div>
->>>>>>> master
     </div>
     <div class="container-index" style="width:100vw; height:100vh;">
       <div data-stations-order-target="sortbyprice">
