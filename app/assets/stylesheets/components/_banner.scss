@@ -18,10 +18,11 @@
 .banner {
   background-position: center;
   background: fixed;
-  height: 100vh;
-  margin-top: -5px;
+  height: 100%;
+  // margin-top: -5px; //tirei esta margem para o banner ajustar no fundo da landing page
   overflow: hidden;
   background-image: linear-gradient(45deg, black, transparent)
+
 }
 
 .banner h1 {
