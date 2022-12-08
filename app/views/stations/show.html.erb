@@ -19,11 +19,11 @@
   <div>
 
   <%= link_to stations_fuel_types_path do %>
-      <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 20px; margin: 15px;"></i>
+    <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 20px; margin: 15px;"></i>
   <% end %>
 
-  <%= link_to "https://www.google.pt/maps" do %>
-      <i class="fa-solid fa-diamond-turn-right" style= "color: #5F6265; font-size: 24px; margin: 15px;"></i>
+  <%= link_to "https://maps.google.com/?q=#{@station.latitude},#{@station.longitude}" do %>
+    <i class="fa-solid fa-diamond-turn-right" style= "color: #5F6265; font-size: 24px; margin: 15px;"></i>
   <% end %>
 
 </div>
