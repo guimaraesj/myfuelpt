@@ -10,7 +10,7 @@
               <div>
                 <p class= "mb-0"> Hello <%= current_user.first_name %></p>
               </div>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown mb-0">
                 <%= image_tag("https://www.freeiconspng.com/uploads/menu-icon-8.png", { class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false }) %>
                 <div class="dropdown-menu dropdown-menu-end position-absolute" aria-labelledby="navbarDropdown">
                   <%= link_to "Stations", stations_fuel_types_path, class: "dropdown-item" %>

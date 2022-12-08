@@ -1,6 +1,4 @@
-<div data-controller="stations-order" data-price-button-target="priceButton" class="container-index" style="width:100vw; height:100vh;">
-<!--FALTA CONFIRMAR ISTO ACIMA PARA O CORRETO. este target acima não pode ser o price button!-->
-  <% stations_fuel_types.each do |sft| %>
+<% stations_fuel_types.each do |sft| %>
     <div class="card-station">
       <%= link_to station_path(sft.station), class: "card-button-stations w-100" do %>
           <div class= "logo">
@@ -154,4 +152,3 @@
       <% end %>
     </div>
   <% end %>
-</div>
