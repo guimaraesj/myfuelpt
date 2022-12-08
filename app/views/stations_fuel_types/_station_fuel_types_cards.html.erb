@@ -33,18 +33,28 @@
      <!--Button to order by price-->
 
   <!--Vai fazer um render na mesma página, por isso tem de ser ajax??-->
-  <div class="d-flex" style="justify-content: space-around">
-    <div>
-      <button class="btn btn-flat" data-action="click->stations-order#orderbyprice">Price</button>
+  <div data-controller="stations-order">
+    <div class="d-flex" style="justify-content: space-around">
+      <div>
+        <button class="btn btn-flat" data-action="click->stations-order#orderByPrice">Price</button>
+      </div>
+      <div>
+        <button class="btn btn-flat" data-action="click->stations-order#orderByDistance">Distance</button>
+      </div>
+      <div>
+        <button class="btn btn-flat">Smart</button>
+        <%#= link_to "Smart", "#", class: "disabled btn btn-flat" %>
+      </div>
     </div>
-    <div>
-      <button class="btn btn-flat" data-action="click->stations-order#orderbydistance">Distance</button>
-    </div>
-    <div>
-      <button class="btn btn-flat" data-action="#">Smart</button>
-      <%#= link_to "Smart", "#", class: "disabled btn btn-flat" %>
+    <div class="container-index" style="width:100vw; height:100vh;">
+      <div data-stations-order-target="sortbyprice">
+        <%= render 'station_cards', fuel_type: @fuel_type, fuel_types: @fuel_types, stations_fuel_types: @sft_by_price%>
+      </div>
+      <div data-stations-order-target="sortbydistance" class="d-none">
+        <% if params[:user_lat] && params[:user_lng] %>
+          <%= render 'station_cards', fuel_type: @fuel_type, fuel_types: @fuel_types, stations_fuel_types: @sft_by_distance %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-     <%= render 'station_cards', fuel_type: @fuel_type, fuel_types: @fuel_types, stations_fuel_types: @stations_fuel_types %>
 </div>
