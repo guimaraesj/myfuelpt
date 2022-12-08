@@ -6,19 +6,18 @@
     <% else %>
     <!---------------------show user discounts: ----------------->
       <!-- Accordion card -->
-      <% @my_discounts.each do |discount| %>
-        <div class="accordion" id="userDiscounts">
-        <% current_user_accordeon=100 %>
+      <% @my_discounts.each_with_index do |discount, index| %>
+        <div class="accordion accordion-flush" id="userDiscounts">
           <div class="accordion-item">
-            <h2 class="accordion-header" id=<%="heading#{current_user_accordeon}"%>>
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{current_user_accordeon}"%> aria-expanded="false" aria-controls=<%="collapse#{current_user_accordeon}"%>>
+            <h2 class="accordion-header" id=<%="heading#{index}"%>>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{index}"%> aria-expanded="false" aria-controls=<%="collapse#{index}"%>>
                 <%= link_to user_discount_path(UserDiscount.find_by(discount: discount, user: current_user)), data: { turbo_method: "delete" } do %>
                   <i class="fa-solid fa-circle-minus fa-2xl me-2", style="color: #FF4E4E" ></i>
                 <% end %>
                 <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
               </button>
             </h2>
-            <div id=<%="collapse#{current_user_accordeon}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{current_user_accordeon}"%> data-bs-parent="#userDiscounts">
+            <div id=<%="collapse#{index}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{index}"%> data-bs-parent="#userDiscounts">
               <div class="accordion-body">
                 <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
                 <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
@@ -44,58 +43,92 @@
             </div>
           </div>
         </div>
-        <% current_user_accordeon+=1 %>
       <% end %>
     <% end %>
 
   <!---------------------show all discounts: ----------------->
   <h1>Available Discounts</h1>
   <!---------------------a lista dos all discounts é a que não estiver nos user discounts ----------------->
-    <% @other_discounts.each do |discount| %>
-      <div class="accordion" id="allDiscounts">
-        <% acordeon_id=1 %>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id=<%="heading#{acordeon_id}"%>>
-              <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse#{acordeon_id}"%> aria-expanded="false" aria-controls=<%="collapse#{acordeon_id}"%>>
-                <div class="container-accordion ">
-                  <%= simple_form_for([discount, @user_discount]) do |f| %>
-                    <%= f.submit class: "plus-button btn btn-primary me-2", value:"+", style: "border-radius: 50%; font-weight:bolder;"  %>
-                    <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
-                  <% end %>
-                </div>
-                <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
-              </button>
-            </h2>
-            <div id=<%="collapse#{acordeon_id}"%> class="accordion-collapse collapse show" aria-labelledby=<%="heading#{acordeon_id}"%> data-bs-parent="#allDiscounts">
-              <div class="accordion-body">
-                <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
-                <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
-                <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
-                <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
-                <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
-                <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
-                <% if discount.min_fuel_l != 0 %>
-                  <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
-                <% end %>
-                <% if discount.max_fuel_l != 999%>
-                  <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
-                <% end %>
-                <% if discount.min_user_age %>
-                  <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
-                <% end %>
-                <% if discount.max_user_age %>
-                  <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
-                <% end %>
-                <% if discount.locations_applied %>
-                  <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
+    <% @other_discounts.each_with_index do |discount, index| %>
+      <div class="accordion accordion-flush" id="allDiscounts">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id=<%="flush-heading#{index}"%>>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#flush-collapse#{index}"%> aria-expanded="false" aria-controls=<%="flush-collapse#{index}"%>>
+              <div class="container-accordion">
+                <%= simple_form_for([discount, @user_discount]) do |f| %>
+                  <%= f.submit class: "plus-button btn btn-primary me-2", value:"+", style: "border-radius: 50%; font-weight:bolder;"  %>
+                  <%# estilizar o botão para ficar como o <i class="fa-solid fa-circle-plus"></i> %>
                 <% end %>
               </div>
+              <h2 style="font-size: 18px" class='m-0'><strong><%= discount.card %> - <%= truncate(discount.description, length:10) %></strong></h2>
+            </button>
+          </h2>
+          <div id=<%="flush-collapse#{index}"%> class="accordion-collapse collapse show" aria-labelledby=<%="flush-heading#{index}"%> data-bs-parent="#allDiscounts">
+            <div class="accordion-body">
+              <%# if discount.card != current_user.discount.card  %> <!-- Ícone só aparece se ainda não estiver nos descontos do user -->
+              <div class="col-sm-6"> <strong>Card: </strong><%= discount.card %> </div>
+              <div class="col-sm-6"> <strong>Brand: </strong><%= discount.brand %> </div>
+              <div class="col-sm-6"> <strong>Quantity: </strong><%= discount.quantity %> €/l</div>
+              <div class="col-sm-6"> <strong>Discount Type: </strong><%= discount.discount_type %> </div>
+              <div class="col-sm-6"> <strong>Description: </strong><%= discount.description %> </div>
+              <% if discount.min_fuel_l != 0 %>
+                <div class="col-sm-6"> <strong>Min Liters: </strong><%= discount.min_fuel_l %> </div>
+              <% end %>
+              <% if discount.max_fuel_l != 999%>
+                <div class="col-sm-6"> <strong>Max Liters: </strong><%= discount.max_fuel_l %> </div>
+              <% end %>
+              <% if discount.min_user_age %>
+                <div class="col-sm-6"> <strong>Min User Age: </strong><%= discount.min_user_age %> </div>
+              <% end %>
+              <% if discount.max_user_age %>
+                <div class="col-sm-6"> <strong>Max User Age: </strong><%= discount.max_user_age %> </div>
+              <% end %>
+              <% if discount.locations_applied %>
+                <div class="col-sm-6"> <strong>Locations Applied: </strong><%= discount.locations_applied %> </div>
+              <% end %>
             </div>
           </div>
         </div>
-      <% acordeon_id+=1 %>
+      </div>
     <% end %>
       <%= link_to stations_fuel_types_path do %>
         <i class="fa-solid fa-chevron-left" style= "color: #5F6265; font-size: 25px; margin: 20px;"></i>
       <% end %>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </div>
