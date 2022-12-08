@@ -33,11 +33,14 @@
       </div>
       <div>
         <button class="btn btn-flat">Smart</button>
+      </div>
     </div>
     <div class="container-index" style="width:100vw; height:100vh;">
+      <!-- RENDER SORT BY PRICE -->
       <div data-stations-order-target="sortbyprice">
         <%= render 'station_cards', fuel_type: @fuel_type, fuel_types: @fuel_types, stations_fuel_types: @sft_by_price%>
       </div>
+      <!-- RENDER SORT BY DISTANCE -->
       <div data-stations-order-target="sortbydistance" class="d-none">
         <% if params[:user_lat] && params[:user_lng] %>
           <%= render 'station_cards', fuel_type: @fuel_type, fuel_types: @fuel_types, stations_fuel_types: @sft_by_distance %>
