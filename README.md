@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+2 week rails app created during Le Wagon coding bootcamp. Work in progress App.
+
+Fuel with your own individual discounts in Portugal and make advantage of the discounts you already have and may not know about.
